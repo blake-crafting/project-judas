@@ -7,7 +7,7 @@ the buyer's application. The vendor's own API performs the vendor-side work.
 
 | Piece | Where | Owner |
 |---|---|---|
-| `judas_bridge.py`, `runner.py`, `creds.py` | Judas host (Blake's Mac) | hackathon team |
+| `judas_bridge.py`, `runner.py`, `creds.py` | Judas host (the machine running Judas) | hackathon team |
 | Template `judas-incident-eval`, org `demo` | Crafting | hackathon team (new; nothing shared modified) |
 | Sandboxes `judas-airtable`, `judas-monday` (private) | Crafting | hackathon team |
 | `service/northstar.py`: checkout :8081 -> incident-sync :8080 -> Postgres `db` | inside each sandbox | buyer code (fictional Northstar Commerce) |
@@ -19,18 +19,19 @@ the official `cs` CLI (`cs exec`).
 
 ## Run it
 
+From the repository root (credentials are read from the git-ignored `.env` and `data/oauth/`):
+
 ```bash
-cd ~/Hackathon/agent-discovery-lab-crafting
-JUDAS_CREDS_ROOT=~/Hackathon/agent-discovery-lab ../agent-discovery-lab/.venv/bin/python -m crafting.runner --vendor both
+.venv/bin/python -m crafting.runner --vendor both
 ```
 
 Judas calls the bridge once per vendor. The request goes in on stdin, and one result JSON comes out on stdout:
 
 ```bash
-echo '{"evaluation_id":"eval-1","tests":["incident_ingest","repeated_events","status_sync"]}' | ~/Hackathon/agent-discovery-lab/.venv/bin/python crafting/judas_bridge.py --vendor monday
+echo '{"evaluation_id":"eval-1","tests":["incident_ingest","repeated_events","status_sync"]}' | .venv/bin/python crafting/judas_bridge.py --vendor monday
 ```
 
-One-time vendor setup (idempotent): `python -m crafting.setup_vendors`.
+One-time vendor setup (safe to rerun): `.venv/bin/python -m crafting.setup_vendors`.
 
 ## The ten acceptance steps (equal inputs for both vendors)
 

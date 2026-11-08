@@ -56,13 +56,13 @@ through our own read-only MCP server), with:
 
 Seldon's Wren QA agent tested Judas in a real browser:
 
-| Build | Result |
+| Version | Result |
 |---|---|
-| Final demo (`judas-final`) | ✅ **7/7**: buyer request, one-click run, stage chain, truthful labels, Crafting evidence, capability vs environment, verdict limits |
-| Ramp/Brex evaluator (`judas-evaluator`) | ✅ 7/7 |
-| First version (`judas-demo`) | ✅ 7/7 |
+| **Final demo** (Airtable vs monday.com + Crafting) | ✅ **7/7**: buyer request, one-click run, stage chain, truthful labels, Crafting evidence, capability vs environment, verdict limits |
+| Evaluator version (Ramp vs Brex) | ✅ 7/7 |
+| First version (Ramp vs Brex documentation comparison) | ✅ 7/7 |
 
-Reports are in `qa/reports/`. Plus **140 automated tests** (`pytest`).
+Details and all reports: [`qa/reports/`](qa/reports/README.md). Plus **140 automated tests** (`pytest`).
 
 ---
 
@@ -92,7 +92,7 @@ open http://127.0.0.1:8700/judas            # Ramp vs Brex
 | `docs_mcp/`, `sandbox_mcp/` | Our read-only MCP servers (official docs; synthetic demo data) |
 | `web/static/` | The pages |
 | `qa/` | Seldon Wren suites, reports, and live vendor evidence |
-| `docs/` | Demo script and code audit |
+| `docs/` | [Demo script](docs/DEMO_SCRIPT.md) and [code audit of the first version](docs/JUDAS_AUDIT.md) |
 
 ## Rules Judas follows
 - **Verification:** verify through a separate path; a seller's own report is never enough.

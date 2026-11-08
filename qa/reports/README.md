@@ -1,24 +1,33 @@
-# Wren QA evidence
+# Seldon Wren QA evidence
 
-Real Seldon Wren attempts only. Nothing here is simulated. Files are never overwritten; each attempt gets its own files.
+Seldon's Wren QA agent tests the Judas pages in a real browser, from plain-English test cases. Everything here
+comes from real Wren runs; nothing is simulated. Each attempt keeps its own files.
 
-| # | When (UTC) | Build | What was run | Outcome | Files |
-|---|---|---|---|---|---|
-| 1 | 2026-11-07 22:59 | `d0a4523` | one-case copy of `seldon.yml` (`open-judas`) | **Refused before start; no experiment created.** Auth OK, tunnel OK; API: *"You've used all your simulations. Buy more to keep running tests."* | `2026-11-07-smoke-attempt.md`, `.cli.log` |
-| 2 | 2026-11-07 23:01 | `df0567d` (UI pass) | `qa/smoke.seldon.yml` (`open-judas`) | **Same refusal; no experiment created.** Tunnel reached the app (`tnl-da83db62717d.joinblok.co`) before the API refused. Balance right after: 0 granted / 0 used / 0 remaining tasks ($3 each), $0 credit. | `2026-11-07-smoke-attempt-2.cli.log`, `.balance.txt` |
+## Summary
 
-| 3 | 2026-11-07 23:04 | `82d4630` | `qa/smoke.seldon.yml` (`open-judas`) | ✅ **1/1 passed.** Experiment `b0f403bd-6103-43d1-bf0a-d2c329fd283f`. The agent log showed the tunnel lands on the Discovery Lab page (`/`), so every case now clicks the Project Judas tab first (`9018fcd`). | `2026-11-07-smoke-attempt-3.*` (CLI log, report JSON/MD, agent log) |
-| 4 | 2026-11-07 23:07 | `9018fcd` | full `seldon.yml` (7 cases) | ✅ **7/7 passed** (report `complete`, 0 failed, 0 blocked). Experiment `7b31724c-fa9a-4b5a-af37-92a73b517901`. The agent log shows Wren clicking through every flow and reading real content (the A2A reply tally, `docs.ramp.com` / `developer.brex.com` citations, the verdict panel, 9 timestamped history events). No bugs found. | `2026-11-07-full-run-1.*` (CLI log, report JSON/MD, agent log) |
+| Version tested | Suite | Result | Experiment |
+|---|---|---|---|
+| **Final demo** (Airtable vs monday.com + Crafting) | `qa/final.seldon.yml` (7 cases) | ✅ **7/7 passed** | `b80fb5c3-dea2-42dc-a574-47df733381ab` |
+| Evaluator version (Ramp vs Brex, with priorities, demos, challenges) | `qa/evaluator.seldon.yml` (7 cases) | ✅ 7/7 passed | `112bd842-1248-4cc0-a78c-00723b934f73` |
+| First version (Ramp vs Brex documentation comparison) | `seldon.yml` (7 cases) | ✅ 7/7 passed | `7b31724c-fa9a-4b5a-af37-92a73b517901` |
 
-| 5 | 2026-11-08 ~00:00 | `6687c55` (evaluator build) | `qa/evaluator.seldon.yml` (7 cases, incl. demo, priorities, challenge) | ✅ **7/7 passed** (report `complete`, 0 failed, 0 blocked). Experiment `112bd842-1248-4cc0-a78c-00723b934f73`. The agent log shows Wren choosing Must/Nice/Skip rows, running the Ramp demo (labeled synthetic), flipping to Real-time first ("favor Ramp", Q6 "decides the verdict"), and challenging Q4 ("searched 4 more places… still not found"). | `2026-11-07-evaluator-run-1.*` (CLI log, report JSON/MD, agent log) |
+## All attempts
 
-**Which report covers which build:** attempts 3–4 cover `judas-demo` (`5013eb9`, baseline `seldon.yml`); attempt 5
-covers the evaluator build (`6687c55`, `qa/evaluator.seldon.yml`). Evaluator screenshots:
-`https://app.seldon.com/experiments/112bd842-1248-4cc0-a78c-00723b934f73`.
+| # | When (UTC) | What ran | Outcome | Files |
+|---|---|---|---|---|
+| 1 | Nov 7, 22:59 | Smoke test (1 case) | Refused before starting: the Seldon workspace had no Wren credits yet. No experiment created | `2026-11-07-smoke-attempt.md`, `.cli.log` |
+| 2 | Nov 7, 23:01 | Smoke test (1 case) | Same refusal (0 credits). The tunnel did reach the app | `2026-11-07-smoke-attempt-2.cli.log`, `.balance.txt` |
+| 3 | Nov 7, 23:04 | Smoke test (1 case), after credits were granted | ✅ 1/1 passed (`b0f403bd-6103-43d1-bf0a-d2c329fd283f`). The log showed the tunnel opens the app's home page, so every case now clicks into the right tab first | `2026-11-07-smoke-attempt-3.*` |
+| 4 | Nov 7, 23:07 | First version, full suite | ✅ 7/7 passed (`7b31724c…`) | `2026-11-07-full-run-1.*` |
+| 5 | Nov 8, ~00:20 | Evaluator version, full suite | ✅ 7/7 passed (`112bd842…`). Wren set priorities, ran the synthetic demo, flipped the verdict with "Real-time first", and challenged a requirement | `2026-11-07-evaluator-run-1.*` |
+| 6 | Nov 8, ~02:06 | **Final demo**, full suite | ✅ **7/7 passed** (`b80fb5c3…`). Wren clicked **Run live evaluation**, saw a new live run complete, and checked the stage chain, adapter labels, Crafting evidence, the two separate verdicts and the stated limits | `2026-11-08-final-run-1.*` |
 
-**Screenshots and full evidence:** in the Seldon app at `https://app.seldon.com/experiments/7b31724c-fa9a-4b5a-af37-92a73b517901` (smoke: `…/b0f403bd-6103-43d1-bf0a-d2c329fd283f`).
+Each attempt's files are the CLI output (`.cli.log`), the report (`.report.md` / `.report.json`), and Wren's
+step-by-step reasoning (`.agent-log.txt`). Screenshots are in the Seldon app under each experiment.
 
-**Earlier blocker (resolved 23:03):** the Seldon workspace behind this API key has no Wren tasks granted. Nothing was charged and nothing was purchased.
-
-**To rerun:** `seldon run --file qa/smoke.seldon.yml --url http://127.0.0.1:8700/judas --auto-approve --wait`,
-then the full `seldon.yml` (7 cases); save `seldon report --id <experiment-id> --json` and `--md` here as attempt 3+.
+## Rerunning
+Start the app (`./dev.sh`), then:
+```bash
+seldon run --file qa/final.seldon.yml --url http://127.0.0.1:8700/judas/live --auto-approve --wait
+```
+A local URL is reached through a temporary tunnel that the Seldon CLI opens for the run.

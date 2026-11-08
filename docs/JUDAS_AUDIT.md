@@ -1,5 +1,9 @@
 # Project Judas: Build Audit
 
+> **Note:** this audit covers the **first version** of Judas (the Ramp vs Brex documentation comparison), written
+> during the build on November 7. The evaluator upgrade and the live Airtable / monday.com + Crafting demo came
+> later. Commit IDs below refer to the original development history, which isn't included in this repository.
+
 **Auditor:** Claude (Fable 5.1), independent pass over the `feat/project-judas` branch
 **Date:** 2026-11-07 · **Branch head at audit:** `47f3e3a` for §1–6; fix pass committed after §7 (see `git log`)
 **Method:** every claim below was checked by running a command, reading the code path, or probing the live app.
