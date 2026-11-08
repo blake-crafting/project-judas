@@ -1,0 +1,12 @@
+# Wren smoke test: one case, copied from seldon.yml (open-judas), to prove the tunnel and browser work first.
+version: 1
+name: project-judas-smoke
+labels: [hackathon, judas, smoke]
+run:
+  url: http://127.0.0.1:8700/judas
+testCases:
+  - id: open-judas
+    name: Judas evaluation page opens
+    steps:
+      - open the app
+    criteria: a page titled Project Judas with a Buyer request panel and a Vendor comparison section is shown

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Judas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="judas">
+  <header class="masthead">
+    <div class="brand">
+      <span class="kicker">Seldon · Ship Happens · Nov 7 2026 · buyer agent</span>
+      <h1>Project Judas</h1>
+      <p class="tagline">A buyer's AI agent asks <b>Ramp</b> and <b>Brex</b> seller agents the same technical questions over A2A,
+        and only accepts answers <em>cited from each vendor's published docs</em>.</p>
+    </div>
+    <ol class="chain" id="chain" aria-label="Signal chain">
+      <li data-node="buyer"><b>Judas</b><small>buyer agent</small></li>
+      <li class="wire" data-wire="a2a"><span>A2A</span></li>
+      <li data-node="seller"><b>Ramp · Brex</b><small>simulated sellers</small></li>
+      <li class="wire" data-wire="mcp"><span>MCP</span></li>
+      <li data-node="docs"><b>Official docs</b><small>Ramp · Brex</small></li>
+    </ol>
+  </header>
+
+  <nav class="tabs">
+    <a class="tablink active" href="/judas">Project Judas</a>
+    <a class="tablink" href="/judas/live">Real vendors (live)</a>
+    <a class="tablink" href="/">Discovery Lab</a>
+    <span class="honesty">Real: A2A messages, MCP calls, Ramp and Brex official docs. Simulated: the buyer, both seller personas
+      and the demo sandbox data.
+      Documented ≠ tested. Not found ≠ unsupported.</span>
+  </nav>
+
+  <main class="jgrid">
+    <!-- 1. Buyer -->
+    <section class="panel" aria-labelledby="h-buyer">
+      <h2 id="h-buyer"><span class="step">01</span> Buyer request</h2>
+      <button type="button" class="chip" id="btn-scenario">Expense sync: Ramp vs Brex</button>
+      <label for="request">Request</label>
+      <textarea id="request" rows="7" maxlength="2000" placeholder="Describe what the buyer needs…"></textarea>
+      <label>What matters to this buyer</label>
+      <div class="profiles" id="profiles" role="group" aria-label="Buyer profiles"></div>
+      <p class="suggest-note" id="suggest-note" hidden></p>
+      <ol class="reqs" id="requirements"><li class="muted">Load the scenario to see the 7 requirements.</li></ol>
+      <label for="custom-question">Your own question <small>optional · sent to both sellers</small></label>
+      <input id="custom-question" type="text" maxlength="300" placeholder="e.g. Do you support multi-entity expense sync?">
+      <p class="buyer-org">Buyer: <b>Fictional Northstar Finance</b> · 300 employees</p>
+      <div class="btnrow">
+        <button class="primary" id="btn-discover">Discover agents</button>
+        <button class="primary alt" id="btn-evaluate">Evaluate both</button>
+      </div>
+      <p class="error" id="err-buyer" role="alert" hidden></p>
+    </section>
+
+    <!-- 2. Agents + threads -->
+    <section class="panel" aria-labelledby="h-agents">
+      <h2 id="h-agents"><span class="step">02</span> Seller agents</h2>
+      <p class="muted" id="agents-note">Curated registry; nothing is crawled from the internet.</p>
+      <div id="agents" class="vendors">
+        <article class="vendor" data-vendor="ramp">
+          <header><b>Ramp</b><span class="vstate" id="state-ramp">not discovered</span></header>
+          <div class="vbtns"><button class="primary small" id="btn-contact-ramp" disabled>Contact Ramp</button>
+            <button class="small ghost-ink" id="btn-demo-ramp" disabled>Request demo</button></div>
+          <div class="demo" id="demo-ramp"></div>
+          <div class="thread" id="thread-ramp"></div>
+        </article>
+        <article class="vendor" data-vendor="brex">
+          <header><b>Brex</b><span class="vstate" id="state-brex">not discovered</span></header>
+          <div class="vbtns"><button class="primary small" id="btn-contact-brex" disabled>Contact Brex</button>
+            <button class="small ghost-ink" id="btn-demo-brex" disabled>Request demo</button></div>
+          <div class="demo" id="demo-brex"></div>
+          <div class="thread" id="thread-brex"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Comparison -->
+    <section class="panel wide" id="comparison" aria-labelledby="h-comp">
+      <h2 id="h-comp"><span class="step">03</span> Vendor comparison</h2>
+      <div class="legend">
+        <span class="st s-documented">documented</span>
+        <span class="st s-partially_documented">partially documented</span>
+        <span class="st s-not_found_in_reviewed_docs">not found in reviewed docs</span>
+        <span class="st s-docs_unavailable">docs unavailable</span>
+        <span class="lv lv-official_docs">official docs</span>
+        <span class="lv lv-synthetic_demo">synthetic demo</span>
+      </div>
+      <div id="comparison-body"><p class="empty">Click <b>Evaluate both</b> to compare what each vendor's documentation says.</p></div>
+    </section>
+  </main>
+
+  <section class="historywrap">
+    <details class="trace" id="history">
+      <summary>Interaction history <span id="history-count" class="count">0</span></summary>
+      <ol class="timeline" id="timeline"></ol>
+    </details>
+    <button id="btn-reset" class="ghost">Reset demo data</button>
+  </section>
+
+  <footer>Seller agents are simulations run by the hackathon team. They are not operated by Ramp or Brex. Answers cite each vendor's
+    official documentation, fetched through our own MCP server. Demos run real code over MCP against our synthetic sandbox, not
+    against Ramp's or Brex's servers; nothing here was tested against either vendor's production API.</footer>
+  <script src="/static/judas.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+{
+ "vendor": "monday.com",
+ "account_tier": "free",
+ "board_id": 18438972207,
+ "board_url": "https://crafting-space.monday.com/boards/18438972207",
+ "item_ids": {
+  "Configure CI pipeline": 13497238839,
+  "Review authentication flow": 13497241313,
+  "Document release checklist": 13497239341
+ },
+ "steps": [
+  {
+   "step": "create column Status",
+   "interface": "monday official hosted MCP (vendor-operated)",
+   "tool": "create_column",
+   "args": {
+    "boardId": 18438972207,
+    "columnType": "status",
+    "columnTitle": "Status"
+   },
+   "error": false,
+   "ms": 979,
+   "result": {
+    "message": "Column successfully created",
+    "column_id": "color_mm8xpwh6",
+    "column_title": "Status"
+   }
+  },
+  {
+   "step": "create column Priority",
+   "interface": "monday official hosted MCP (vendor-operated)",
+   "tool": "create_column",
+   "args": {
+    "boardId": 18438972207,
+    "columnType": "status",
+    "columnTitle": "Priority"
+   },
+   "error": false,
+   "ms": 792,
+   "result": {
+    "message": "Column successfully created",
+    "column_id": "color_mm8xhgkj",
+    "column_title": "Priority"
+   }
+  },
+  {
+   "step": "create item 'Configure CI pipeline'",
+   "interface": "monday official hosted MCP (vendor-operated)",
+   "tool": "create_item",
+   "args": {
+    "boardId": 18438972207,
+    "name": "Configure CI pipeline",
+    "createLabelsIfMissing": true,
+    "columnValues": "{\"color_mm8xpwh6\": {\"label\": \"To do\"}, \"color_mm8xhgkj\": {\"label\": \"High\"}}"
+   },
+   "error": false,
+   "ms": 1238,
+   "result": {
+    "message": "Item 13497238839 successfully created",
+    "item_id": "13497238839",
+    "item_name": "Configure CI pipeline",
+    "item_url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497238839",
+    "board_id": 18438972207
+   }
+  },
+  {
+   "step": "create item 'Review authentication flow'",
+   "interface": "monday official hosted MCP (vendor-operated)",
+   "tool": "create_item",
+   "args": {
+    "boardId": 18438972207,
+    "name": "Review authentication flow",
+    "createLabelsIfMissing": true,
+    "columnValues": "{\"color_mm8xpwh6\": {\"label\": \"In progress\"}, \"color_mm8xhgkj\": {\"label\": \"High\"}}"
+   },
+   "error": false,
+   "ms": 921,
+   "result": {
+    "message": "Item 13497241313 successfully created",
+    "item_id": "13497241313",
+    "item_name": "Review authentication flow",
+    "item_url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497241313",
+    "board_id": 18438972207
+   }
+  },
+  {
+   "step": "create item 'Document release checklist'",
+   "interface": "monday official hosted MCP (vendor-operated)",
+   "tool": "create_item",
+   "args": {
+    "boardId": 18438972207,
+    "name": "Document release checklist",
+    "createLabelsIfMissing": true,
+    "columnValues": "{\"color_mm8xpwh6\": {\"label\": \"To do\"}, \"color_mm8xhgkj\": {\"label\": \"Medium\"}}"
+   },
+   "error": false,
+   "ms": 1060,
+   "result": {
+    "message": "Item 13497239341 successfully created",
+    "item_id": "13497239341",
+    "item_name": "Document release checklist",
+    "item_url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497239341",
+    "board_id": 18438972207
+   }
+  },
+  {
+   "step": "update 'Configure CI pipeline' -> In progress",
+   "interface": "monday official hosted MCP (vendor-operated)",
+   "tool": "change_item_column_values",
+   "args": {
+    "boardId": 18438972207,
+    "itemId": 13497238839,
+    "createLabelsIfMissing": true,
+    "columnValues": "{\"color_mm8xpwh6\": {\"label\": \"In progress\"}}"
+   },
+   "error": false,
+   "ms": 869,
+   "result": {
+    "message": "Item 13497238839 successfully updated",
+    "item_id": "13497238839",
+    "item_name": "Configure CI pipeline",
+    "item_url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497238839",
+    "column_values": {
+     "color_mm8xpwh6": "{\"index\":4,\"changed_at\":\"2026-11-08T01:15:49.731Z\"}"
+    }
+   }
+  },
+  {
+   "step": "readback via MCP",
+   "interface": "monday official hosted MCP (vendor-operated)",
+   "tool": "get_board_items_page",
+   "args": {
+    "boardId": 18438972207,
+    "includeColumns": true,
+    "limit": 25
+   },
+   "error": false,
+   "ms": 591,
+   "result": {
+    "board": {
+     "id": "18438972207",
+     "name": "JUDAS_TEST_Project_Tracking_20261108-0115",
+     "hierarchy_type": "classic"
+    },
+    "items": [
+     {
+      "id": "13497238839",
+      "name": "Configure CI pipeline",
+      "url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497238839",
+      "created_at": "2026-11-08T01:15:47Z",
+      "updated_at": "2026-11-08T01:15:49Z",
+      "column_values": {
+       "color_mm8xpwh6": "In progress",
+       "color_mm8xhgkj": "High"
+      },
+      "group": {
+       "id": "topics",
+       "title": "Group Title"
+      }
+     },
+     {
+      "id": "13497241313",
+      "name": "Review authentication flow",
+      "url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497241313",
+      "created_at": "2026-11-08T01:15:48Z",
+      "updated_at": "2026-11-08T01:15:48Z",
+      "column_values": {
+       "color_mm8xpwh6": "In progress",
+       "color_mm8xhgkj": "High"
+      },
+      "group": {
+       "id": "topics",
+       "title": "Group Title"
+      }
+     },
+     {
+      "id": "13497239341",
+      "name": "Document release checklist",
+      "url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497239341",
+      "created_at": "2026-11-08T01:15:49Z",
+      "updated_at": "2026-11-08T01:15:49Z",
+      "column_values": {
+       "color_mm8xpwh6": "To do",
+       "color_mm8xhgkj": "Medium"
+      },
+      "group": {
+       "id": "topics",
+       "title": "Group Title"
+      }
+     }
+    ],
+    "pagination": {
+     "has_more": false,
+     "nextCursor": null,
+     "count": 3
+    },
+    "source": "query-api"
+   }
+  }
+ ],
+ "mcp_readback": {
+  "board": {
+   "id": "18438972207",
+   "name": "JUDAS_TEST_Project_Tracking_20261108-0115",
+   "hierarchy_type": "classic"
+  },
+  "items": [
+   {
+    "id": "13497238839",
+    "name": "Configure CI pipeline",
+    "url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497238839",
+    "created_at": "2026-11-08T01:15:47Z",
+    "updated_at": "2026-11-08T01:15:49Z",
+    "column_values": {
+     "color_mm8xpwh6": "In progress",
+     "color_mm8xhgkj": "High"
+    },
+    "group": {
+     "id": "topics",
+     "title": "Group Title"
+    }
+   },
+   {
+    "id": "13497241313",
+    "name": "Review authentication flow",
+    "url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497241313",
+    "created_at": "2026-11-08T01:15:48Z",
+    "updated_at": "2026-11-08T01:15:48Z",
+    "column_values": {
+     "color_mm8xpwh6": "In progress",
+     "color_mm8xhgkj": "High"
+    },
+    "group": {
+     "id": "topics",
+     "title": "Group Title"
+    }
+   },
+   {
+    "id": "13497239341",
+    "name": "Document release checklist",
+    "url": "https://crafting-space.monday.com/boards/18438972207/pulses/13497239341",
+    "created_at": "2026-11-08T01:15:49Z",
+    "updated_at": "2026-11-08T01:15:49Z",
+    "column_values": {
+     "color_mm8xpwh6": "To do",
+     "color_mm8xhgkj": "Medium"
+    },
+    "group": {
+     "id": "topics",
+     "title": "Group Title"
+    }
+   }
+  ],
+  "pagination": {
+   "has_more": false,
+   "nextCursor": null,
+   "count": 3
+  },
+  "source": "query-api"
+ },
+ "independent_readback": {
+  "interface": "monday GraphQL API v2 (api.monday.com/v2), not the MCP server",
+  "http_status": 200,
+  "items": {
+   "Configure CI pipeline": {
+    "Status": "In progress",
+    "Priority": "High"
+   },
+   "Review authentication flow": {
+    "Status": "In progress",
+    "Priority": "High"
+   },
+   "Document release checklist": {
+    "Status": "To do",
+    "Priority": "Medium"
+   }
+  }
+ },
+ "checks": [
+  {
+   "item": "Configure CI pipeline",
+   "field": "Status",
+   "expected": "In progress",
+   "actual": "In progress",
+   "pass": true
+  },
+  {
+   "item": "Configure CI pipeline",
+   "field": "Priority",
+   "expected": "High",
+   "actual": "High",
+   "pass": true
+  },
+  {
+   "item": "Review authentication flow",
+   "field": "Status",
+   "expected": "In progress",
+   "actual": "In progress",
+   "pass": true
+  },
+  {
+   "item": "Review authentication flow",
+   "field": "Priority",
+   "expected": "High",
+   "actual": "High",
+   "pass": true
+  },
+  {
+   "item": "Document release checklist",
+   "field": "Status",
+   "expected": "To do",
+   "actual": "To do",
+   "pass": true
+  },
+  {
+   "item": "Document release checklist",
+   "field": "Priority",
+   "expected": "Medium",
+   "actual": "Medium",
+   "pass": true
+  }
+ ],
+ "all_passed": true
+}

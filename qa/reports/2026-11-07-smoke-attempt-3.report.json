@@ -1,0 +1,35 @@
+{
+  "experimentId": "b0f403bd-6103-43d1-bf0a-d2c329fd283f",
+  "planTitle": "Seldon QA: project-judas-smoke",
+  "status": "complete",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "blocked": 0,
+    "timedOut": 0,
+    "passRate": 1,
+    "headline": "1/1 passed (100%)."
+  },
+  "failures": [],
+  "passed": [
+    {
+      "id": "open-judas",
+      "title": "Judas evaluation page opens",
+      "area": "general",
+      "durationSeconds": 46.742,
+      "startedAt": "2026-11-07T23:04:29.067833+00:00",
+      "completedAt": "2026-11-07T23:05:15.809583+00:00"
+    }
+  ],
+  "coverage": {
+    "journeysExercised": [
+      "Judas evaluation page opens"
+    ],
+    "unreachable": [],
+    "confidenceNote": "1/1 cases passed.",
+    "flakyCaseIds": []
+  },
+  "narrative": "All 1 of 1 tests passed for the project-judas-smoke run. The Judas evaluation page loads correctly, displaying the expected title, Buyer request panel, and Vendor comparison section. No failures or blocked cases to report.",
+  "openQuestions": []
+}

@@ -1,0 +1,468 @@
+{
+ "vendor": "Airtable",
+ "account_tier": "free",
+ "auth": "OAuth 2.0 (authorization code + PKCE, dynamic client registration)",
+ "base_id": "appCpKx6Kiih3JduJ",
+ "table_id": "tblw8TTrXYRlcPAop",
+ "base_url": "https://airtable.com/appCpKx6Kiih3JduJ/tblw8TTrXYRlcPAop",
+ "record_ids": {
+  "Configure CI pipeline": "recZN0flX4tOwzc2C",
+  "Review authentication flow": "recOBTxTmyXkw66fv",
+  "Document release checklist": "recQjYABolimVM17d"
+ },
+ "steps": [
+  {
+   "step": "create base + Tasks table",
+   "interface": "Airtable official hosted MCP (vendor-operated)",
+   "tool": "create_base",
+   "args": {
+    "workspaceId": "wspqXCBJ6f9r7NfB9",
+    "name": "JUDAS_TEST_Project_Tracking_20261108-0127",
+    "tables": [
+     {
+      "name": "Tasks",
+      "description": "Disposable Project Judas test table. Fictional data.",
+      "fields": [
+       {
+        "name": "Name",
+        "type": "singleLineText"
+       },
+       {
+        "name": "Status",
+        "type": "singleSelect",
+        "options": {
+         "choices": [
+          {
+           "name": "To do"
+          },
+          {
+           "name": "In progress"
+          },
+          {
+           "name": "Done"
+          }
+         ]
+        }
+       },
+       {
+        "name": "Priority",
+        "type": "singleSelect",
+        "options": {
+         "choices": [
+          {
+           "name": "High"
+          },
+          {
+           "name": "Medium"
+          },
+          {
+           "name": "Low"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "error": false,
+   "ms": 2631,
+   "result": {
+    "id": "appCpKx6Kiih3JduJ",
+    "tables": [
+     {
+      "id": "tblw8TTrXYRlcPAop",
+      "name": "Tasks",
+      "description": "Disposable Project Judas test table. Fictional data.",
+      "primaryFieldId": "fldZLihZlzgWQZopc",
+      "fields": [
+       {
+        "id": "fldZLihZlzgWQZopc",
+        "name": "Name",
+        "type": "singleLineText"
+       },
+       {
+        "id": "fldoWjkvAB2nPFFxu",
+        "name": "Status",
+        "type": "singleSelect",
+        "options": {
+         "choices": [
+          {
+           "id": "sel7X3qTmGIgKtmh2",
+           "name": "To do",
+           "color": "grayLight2"
+          },
+          {
+           "id": "selhhpsLqAWcjpIqT",
+           "name": "In progress",
+           "color": "grayLight2"
+          },
+          {
+           "id": "selNnWxFvDDIGfq4Q",
+           "name": "Done",
+           "color": "grayLight2"
+          }
+         ]
+        }
+       },
+       {
+        "id": "fldB6wjMTBYA4ie0J",
+        "name": "Priority",
+        "type": "singleSelect",
+        "options": {
+         "choices": [
+          {
+           "id": "selnQemGc0qkmghaa",
+           "name": "High",
+           "color": "grayLight2"
+          },
+          {
+           "id": "sel26fpgshOGco1uO",
+           "name": "Medium",
+           "color": "grayLight2"
+          },
+          {
+           "id": "selaq6FeaDpG786LV",
+           "name": "Low",
+           "color": "grayLight2"
+          }
+         ]
+        }
+       }
+      ],
+      "views": [
+       {
+        "id": "viw6y3ySpNpu5Bzpl",
+        "name": "Grid view",
+        "type": "grid"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "step": "read table schema",
+   "interface": "Airtable official hosted MCP (vendor-operated)",
+   "tool": "list_tables_for_base",
+   "args": {
+    "baseId": "appCpKx6Kiih3JduJ"
+   },
+   "error": false,
+   "ms": 460,
+   "result": {
+    "tables": [
+     {
+      "id": "tblw8TTrXYRlcPAop",
+      "name": "Tasks",
+      "description": "Disposable Project Judas test table. Fictional data.",
+      "primaryFieldId": "fldZLihZlzgWQZopc",
+      "fields": [
+       {
+        "id": "fldZLihZlzgWQZopc",
+        "name": "Name",
+        "type": "singleLineText"
+       },
+       {
+        "id": "fldoWjkvAB2nPFFxu",
+        "name": "Status",
+        "type": "singleSelect"
+       },
+       {
+        "id": "fldB6wjMTBYA4ie0J",
+        "name": "Priority",
+        "type": "singleSelect"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "step": "create 3 records",
+   "interface": "Airtable official hosted MCP (vendor-operated)",
+   "tool": "create_records_for_table",
+   "args": {
+    "baseId": "appCpKx6Kiih3JduJ",
+    "tableId": "tblw8TTrXYRlcPAop",
+    "records": [
+     {
+      "fields": {
+       "fldZLihZlzgWQZopc": "Configure CI pipeline",
+       "fldoWjkvAB2nPFFxu": "To do",
+       "fldB6wjMTBYA4ie0J": "High"
+      }
+     },
+     {
+      "fields": {
+       "fldZLihZlzgWQZopc": "Review authentication flow",
+       "fldoWjkvAB2nPFFxu": "In progress",
+       "fldB6wjMTBYA4ie0J": "High"
+      }
+     },
+     {
+      "fields": {
+       "fldZLihZlzgWQZopc": "Document release checklist",
+       "fldoWjkvAB2nPFFxu": "To do",
+       "fldB6wjMTBYA4ie0J": "Medium"
+      }
+     }
+    ]
+   },
+   "error": false,
+   "ms": 418,
+   "result": {
+    "records": [
+     {
+      "id": "recZN0flX4tOwzc2C",
+      "createdTime": "2026-11-08T01:27:05.000Z",
+      "cellValuesByFieldId": {
+       "fldZLihZlzgWQZopc": "Configure CI pipeline",
+       "fldoWjkvAB2nPFFxu": "To do",
+       "fldB6wjMTBYA4ie0J": "High"
+      }
+     },
+     {
+      "id": "recOBTxTmyXkw66fv",
+      "createdTime": "2026-11-08T01:27:05.000Z",
+      "cellValuesByFieldId": {
+       "fldZLihZlzgWQZopc": "Review authentication flow",
+       "fldoWjkvAB2nPFFxu": "In progress",
+       "fldB6wjMTBYA4ie0J": "High"
+      }
+     },
+     {
+      "id": "recQjYABolimVM17d",
+      "createdTime": "2026-11-08T01:27:05.000Z",
+      "cellValuesByFieldId": {
+       "fldZLihZlzgWQZopc": "Document release checklist",
+       "fldoWjkvAB2nPFFxu": "To do",
+       "fldB6wjMTBYA4ie0J": "Medium"
+      }
+     }
+    ],
+    "actionId": "actpgvgxoHPOi1eym"
+   }
+  },
+  {
+   "step": "update 'Configure CI pipeline' -> In progress",
+   "interface": "Airtable official hosted MCP (vendor-operated)",
+   "tool": "update_records_for_table",
+   "args": {
+    "baseId": "appCpKx6Kiih3JduJ",
+    "tableId": "tblw8TTrXYRlcPAop",
+    "records": [
+     {
+      "id": "recZN0flX4tOwzc2C",
+      "fields": {
+       "fldoWjkvAB2nPFFxu": "In progress"
+      }
+     }
+    ]
+   },
+   "error": false,
+   "ms": 310,
+   "result": {
+    "records": [
+     {
+      "id": "recZN0flX4tOwzc2C",
+      "createdTime": "2026-11-08T01:27:05.000Z",
+      "cellValuesByFieldId": {
+       "fldoWjkvAB2nPFFxu": "In progress"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "step": "readback via MCP",
+   "interface": "Airtable official hosted MCP (vendor-operated)",
+   "tool": "list_records_for_table",
+   "args": {
+    "baseId": "appCpKx6Kiih3JduJ",
+    "tableId": "tblw8TTrXYRlcPAop"
+   },
+   "error": false,
+   "ms": 262,
+   "result": {
+    "records": [
+     {
+      "id": "recOBTxTmyXkw66fv",
+      "createdTime": "2026-11-08T01:27:05.000Z",
+      "cellValuesByFieldId": {
+       "fldB6wjMTBYA4ie0J": {
+        "id": "selnQemGc0qkmghaa",
+        "name": "High",
+        "color": "grayLight2"
+       },
+       "fldZLihZlzgWQZopc": "Review authentication flow",
+       "fldoWjkvAB2nPFFxu": {
+        "id": "selhhpsLqAWcjpIqT",
+        "name": "In progress",
+        "color": "grayLight2"
+       }
+      }
+     },
+     {
+      "id": "recQjYABolimVM17d",
+      "createdTime": "2026-11-08T01:27:05.000Z",
+      "cellValuesByFieldId": {
+       "fldB6wjMTBYA4ie0J": {
+        "id": "sel26fpgshOGco1uO",
+        "name": "Medium",
+        "color": "grayLight2"
+       },
+       "fldZLihZlzgWQZopc": "Document release checklist",
+       "fldoWjkvAB2nPFFxu": {
+        "id": "sel7X3qTmGIgKtmh2",
+        "name": "To do",
+        "color": "grayLight2"
+       }
+      }
+     },
+     {
+      "id": "recZN0flX4tOwzc2C",
+      "createdTime": "2026-11-08T01:27:05.000Z",
+      "cellValuesByFieldId": {
+       "fldB6wjMTBYA4ie0J": {
+        "id": "selnQemGc0qkmghaa",
+        "name": "High",
+        "color": "grayLight2"
+       },
+       "fldZLihZlzgWQZopc": "Configure CI pipeline",
+       "fldoWjkvAB2nPFFxu": {
+        "id": "selhhpsLqAWcjpIqT",
+        "name": "In progress",
+        "color": "grayLight2"
+       }
+      }
+     }
+    ],
+    "metadata": {
+     "totalRecordCount": 3
+    }
+   }
+  }
+ ],
+ "mcp_readback": {
+  "records": [
+   {
+    "id": "recOBTxTmyXkw66fv",
+    "createdTime": "2026-11-08T01:27:05.000Z",
+    "cellValuesByFieldId": {
+     "fldB6wjMTBYA4ie0J": {
+      "id": "selnQemGc0qkmghaa",
+      "name": "High",
+      "color": "grayLight2"
+     },
+     "fldZLihZlzgWQZopc": "Review authentication flow",
+     "fldoWjkvAB2nPFFxu": {
+      "id": "selhhpsLqAWcjpIqT",
+      "name": "In progress",
+      "color": "grayLight2"
+     }
+    }
+   },
+   {
+    "id": "recQjYABolimVM17d",
+    "createdTime": "2026-11-08T01:27:05.000Z",
+    "cellValuesByFieldId": {
+     "fldB6wjMTBYA4ie0J": {
+      "id": "sel26fpgshOGco1uO",
+      "name": "Medium",
+      "color": "grayLight2"
+     },
+     "fldZLihZlzgWQZopc": "Document release checklist",
+     "fldoWjkvAB2nPFFxu": {
+      "id": "sel7X3qTmGIgKtmh2",
+      "name": "To do",
+      "color": "grayLight2"
+     }
+    }
+   },
+   {
+    "id": "recZN0flX4tOwzc2C",
+    "createdTime": "2026-11-08T01:27:05.000Z",
+    "cellValuesByFieldId": {
+     "fldB6wjMTBYA4ie0J": {
+      "id": "selnQemGc0qkmghaa",
+      "name": "High",
+      "color": "grayLight2"
+     },
+     "fldZLihZlzgWQZopc": "Configure CI pipeline",
+     "fldoWjkvAB2nPFFxu": {
+      "id": "selhhpsLqAWcjpIqT",
+      "name": "In progress",
+      "color": "grayLight2"
+     }
+    }
+   }
+  ],
+  "metadata": {
+   "totalRecordCount": 3
+  }
+ },
+ "independent_readback": {
+  "interface": "Airtable REST API (api.airtable.com/v0), not the MCP server",
+  "http_status": 200,
+  "items": {
+   "Review authentication flow": {
+    "Status": "In progress",
+    "Priority": "High"
+   },
+   "Document release checklist": {
+    "Status": "To do",
+    "Priority": "Medium"
+   },
+   "Configure CI pipeline": {
+    "Status": "In progress",
+    "Priority": "High"
+   }
+  }
+ },
+ "checks": [
+  {
+   "item": "Configure CI pipeline",
+   "field": "Status",
+   "expected": "In progress",
+   "actual": "In progress",
+   "pass": true
+  },
+  {
+   "item": "Configure CI pipeline",
+   "field": "Priority",
+   "expected": "High",
+   "actual": "High",
+   "pass": true
+  },
+  {
+   "item": "Review authentication flow",
+   "field": "Status",
+   "expected": "In progress",
+   "actual": "In progress",
+   "pass": true
+  },
+  {
+   "item": "Review authentication flow",
+   "field": "Priority",
+   "expected": "High",
+   "actual": "High",
+   "pass": true
+  },
+  {
+   "item": "Document release checklist",
+   "field": "Status",
+   "expected": "To do",
+   "actual": "To do",
+   "pass": true
+  },
+  {
+   "item": "Document release checklist",
+   "field": "Priority",
+   "expected": "Medium",
+   "actual": "Medium",
+   "pass": true
+  }
+ ],
+ "all_passed": true
+}

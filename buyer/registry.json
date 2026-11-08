@@ -1,0 +1,160 @@
+{
+  "_note": "Curated local registry. Only base_urls listed here may ever be contacted (SSRF allowlist). Fictional entries are labeled is_demo=true; their endpoints are real A2A servers answering from invented profiles.",
+  "agents": [
+    {
+      "id": "ramp-docs-adapter",
+      "name": "Ramp Developer Documentation Advisor",
+      "operator": "Hackathon-owned wrapper, not Ramp",
+      "protocol": "a2a",
+      "base_url": "http://127.0.0.1:9101",
+      "skills": [
+        "answer_ramp_api_questions",
+        "retrieve_documentation_evidence"
+      ],
+      "tags": [
+        "ramp",
+        "spend management",
+        "expenses",
+        "vendors",
+        "reimbursements",
+        "bills",
+        "api",
+        "documentation",
+        "procurement"
+      ],
+      "badges": [
+        "A2A",
+        "MCP-backed",
+        "documentation-only"
+      ],
+      "is_demo": false,
+      "vendor": "ramp",
+      "roles": [
+        "vendor_seller"
+      ]
+    },
+    {
+      "id": "brex-docs-adapter",
+      "name": "Brex Developer Documentation Advisor",
+      "operator": "Hackathon-owned wrapper, not Brex",
+      "protocol": "a2a",
+      "base_url": "http://127.0.0.1:9104",
+      "vendor": "brex",
+      "roles": [
+        "vendor_seller"
+      ],
+      "skills": [
+        "answer_brex_api_questions"
+      ],
+      "tags": [
+        "brex",
+        "spend management",
+        "expenses",
+        "transactions",
+        "cards",
+        "api",
+        "documentation"
+      ],
+      "badges": [
+        "A2A",
+        "MCP-backed",
+        "documentation-only"
+      ],
+      "is_demo": false
+    },
+    {
+      "id": "ledgerleaf-demo",
+      "name": "LedgerLeaf AP Agent (fictional)",
+      "operator": "Invented for this demo",
+      "protocol": "a2a",
+      "base_url": "http://127.0.0.1:9103/ledgerleaf",
+      "skills": [
+        "answer_ap_questions"
+      ],
+      "tags": [
+        "accounts payable",
+        "bills",
+        "invoices",
+        "vendors"
+      ],
+      "badges": [
+        "A2A",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "id": "payroll-pal-demo",
+      "name": "PayrollPal HR Agent (fictional)",
+      "operator": "Invented for this demo",
+      "protocol": "a2a",
+      "base_url": "http://127.0.0.1:9103/payrollpal",
+      "skills": [
+        "answer_payroll_questions"
+      ],
+      "tags": [
+        "payroll",
+        "hr",
+        "benefits",
+        "employees"
+      ],
+      "badges": [
+        "A2A",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "id": "airtable-live-adapter",
+      "name": "Airtable Live Operations Adapter",
+      "operator": "Hackathon-owned adapter, not Airtable; executes through Airtable's official hosted MCP",
+      "protocol": "a2a",
+      "base_url": "http://127.0.0.1:9106",
+      "vendor": "airtable",
+      "roles": [
+        "live_vendor_seller"
+      ],
+      "skills": [
+        "demonstrate_airtable_project_tracking"
+      ],
+      "tags": [
+        "airtable",
+        "project tracking",
+        "database",
+        "tasks"
+      ],
+      "badges": [
+        "A2A",
+        "official vendor MCP",
+        "live"
+      ],
+      "is_demo": false
+    },
+    {
+      "id": "monday-live-adapter",
+      "name": "monday.com Live Operations Adapter",
+      "operator": "Hackathon-owned adapter, not monday.com; executes through monday.com's official hosted MCP",
+      "protocol": "a2a",
+      "base_url": "http://127.0.0.1:9107",
+      "vendor": "monday",
+      "roles": [
+        "live_vendor_seller"
+      ],
+      "skills": [
+        "demonstrate_monday_project_tracking"
+      ],
+      "tags": [
+        "monday",
+        "project tracking",
+        "work management",
+        "tasks"
+      ],
+      "badges": [
+        "A2A",
+        "official vendor MCP",
+        "live"
+      ],
+      "is_demo": false
+    }
+  ]
+}

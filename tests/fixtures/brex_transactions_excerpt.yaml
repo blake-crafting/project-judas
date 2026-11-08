@@ -1,0 +1,99 @@
+# Test fixture modeled on Brex's public Transactions API spec
+# (https://developer.brex.com/_spec/openapi/transactions_api.yaml).
+# Trimmed; keeps the shapes our parser must handle ($ref params, Page_ wrapper, allOf).
+openapi: 3.0.1
+info:
+  title: Transactions API
+  version: 1.0.0
+paths:
+  /v2/transactions/card/primary:
+    get:
+      tags: [Card Transactions]
+      summary: List primary card transactions
+      description: Lists all settled transactions for all card accounts.
+      operationId: listPrimaryCardTransactions
+      parameters:
+        - name: cursor
+          in: query
+          required: false
+          schema: {type: string}
+        - name: limit
+          in: query
+          required: false
+          schema: {type: integer, format: int32}
+        - $ref: '#/components/parameters/PostedAtStart'
+      responses:
+        '200':
+          description: listPrimaryCardTransactions 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_CardTransaction_'
+      security:
+        - OAuth2: [transactions.card.readonly]
+components:
+  parameters:
+    PostedAtStart:
+      name: posted_at_start
+      in: query
+      required: false
+      description: >-
+        Shows only transactions with a posted_at on or after this date-time.
+        Fetch a window that overlaps with your previous request rather than
+        starting exactly where it ended (we recommend overlapping by a few days)
+        so that transactions are not missed. De-duplicate the overlapping results
+        by transaction `id`.
+      schema: {type: string, format: date-time}
+  schemas:
+    Money:
+      type: object
+      description: Money fields can be signed or unsigned.
+      required: [amount]
+      properties:
+        amount:
+          type: integer
+          format: int64
+          description: The amount of money, in the smallest denomination of the currency indicated by currency. For example, when currency is USD, amount is in cents.
+        currency:
+          type: string
+          nullable: true
+          description: The type of currency, in ISO 4217 format. Default to USD if not specified.
+    Merchant:
+      type: object
+      required: [raw_descriptor, mcc, country]
+      properties:
+        raw_descriptor: {type: string}
+        mcc: {type: string}
+        country: {type: string}
+    CardTransaction:
+      type: object
+      required: [id, description, amount, initiated_at_date, posted_at_date]
+      properties:
+        id: {type: string}
+        description: {type: string}
+        amount:
+          $ref: '#/components/schemas/Money'
+        initiated_at_date: {type: string, format: date}
+        posted_at_date: {type: string, format: date}
+        merchant:
+          allOf:
+            - $ref: '#/components/schemas/Merchant'
+          nullable: true
+    Page_CardTransaction_:
+      type: object
+      required: [items]
+      properties:
+        next_cursor: {type: string, nullable: true}
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CardTransaction'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts-api.brex.com/oauth2/default/v1/authorize
+          tokenUrl: https://accounts-api.brex.com/oauth2/default/v1/token
+          scopes:
+            transactions.card.readonly: View your card transactions

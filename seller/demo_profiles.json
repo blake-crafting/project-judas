@@ -1,0 +1,29 @@
+{
+  "_note": "INVENTED vendors for the demo. Every claim is fictional and labeled source_type=demo_profile, verified=false. Editable; re-read on every request.",
+  "ledgerleaf": {
+    "name": "LedgerLeaf AP Agent (fictional)",
+    "description": "FICTIONAL demo vendor invented for this hackathon. Answers from an invented capability profile.",
+    "capabilities": [
+      {"capability": "bills", "keywords": ["bill", "invoice", "accounts payable"], "finding": "documented",
+       "detail": "Invented profile says LedgerLeaf has a bills API (POST /v2/bills)."},
+      {"capability": "vendor records", "keywords": ["vendor", "supplier"], "finding": "documented",
+       "detail": "Invented profile says LedgerLeaf syncs vendor records nightly."},
+      {"capability": "webhooks", "keywords": ["webhook"], "finding": "unsupported",
+       "detail": "Invented profile says LedgerLeaf has no webhooks; polling only."},
+      {"capability": "expenses", "keywords": ["expense", "transaction", "spend", "card"], "finding": "unsupported",
+       "detail": "Invented profile says LedgerLeaf does not handle card spend or expenses."}
+    ]
+  },
+  "payrollpal": {
+    "name": "PayrollPal HR Agent (fictional)",
+    "description": "FICTIONAL demo vendor invented for this hackathon. Answers from an invented capability profile.",
+    "capabilities": [
+      {"capability": "payroll", "keywords": ["payroll", "pay run", "salary"], "finding": "documented",
+       "detail": "Invented profile says PayrollPal exposes a payroll runs API."},
+      {"capability": "HR / benefits", "keywords": ["benefit", "hr", "hris", "employee"], "finding": "documented",
+       "detail": "Invented profile says PayrollPal manages employee records and benefits."},
+      {"capability": "expenses", "keywords": ["expense", "reimbursement"], "finding": "unsupported",
+       "detail": "Invented profile says PayrollPal does not handle expenses."}
+    ]
+  }
+}

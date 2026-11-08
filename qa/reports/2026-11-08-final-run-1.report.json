@@ -1,0 +1,89 @@
+{
+  "experimentId": "b80fb5c3-dea2-42dc-a574-47df733381ab",
+  "planTitle": "Seldon QA: project-judas-final",
+  "status": "complete",
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "blocked": 0,
+    "timedOut": 0,
+    "passRate": 1,
+    "headline": "7/7 passed (100%)."
+  },
+  "failures": [],
+  "passed": [
+    {
+      "id": "open-live",
+      "title": "Buyer request and tests are shown",
+      "area": "general",
+      "durationSeconds": 56.606,
+      "startedAt": "2026-11-08T02:05:34.544485+00:00",
+      "completedAt": "2026-11-08T02:06:31.150819+00:00"
+    },
+    {
+      "id": "capability-vs-environment",
+      "title": "Vendor capability and buyer-environment compatibility are separate",
+      "area": "general",
+      "durationSeconds": 60.358,
+      "startedAt": "2026-11-08T02:05:37.017121+00:00",
+      "completedAt": "2026-11-08T02:06:37.374908+00:00"
+    },
+    {
+      "id": "stage-chain",
+      "title": "Every stage of the evidence chain is visible",
+      "area": "general",
+      "durationSeconds": 63.64,
+      "startedAt": "2026-11-08T02:05:34.820331+00:00",
+      "completedAt": "2026-11-08T02:06:38.46008+00:00"
+    },
+    {
+      "id": "truthful-labels",
+      "title": "Simulated adapters are not presented as vendor agents",
+      "area": "general",
+      "durationSeconds": 73.527,
+      "startedAt": "2026-11-08T02:05:43.414017+00:00",
+      "completedAt": "2026-11-08T02:06:56.94113+00:00"
+    },
+    {
+      "id": "crafting-evidence",
+      "title": "Crafting integration test evidence is shown",
+      "area": "general",
+      "durationSeconds": 76.559,
+      "startedAt": "2026-11-08T02:05:29.820788+00:00",
+      "completedAt": "2026-11-08T02:06:46.379818+00:00"
+    },
+    {
+      "id": "verdict-limits",
+      "title": "The verdict states its limits",
+      "area": "general",
+      "durationSeconds": 85.501,
+      "startedAt": "2026-11-08T02:05:27.760875+00:00",
+      "completedAt": "2026-11-08T02:06:53.261853+00:00"
+    },
+    {
+      "id": "run-live-evaluation",
+      "title": "One click runs the whole evaluation",
+      "area": "general",
+      "durationSeconds": 174.856,
+      "startedAt": "2026-11-08T02:05:37.900892+00:00",
+      "completedAt": "2026-11-08T02:08:32.756693+00:00"
+    }
+  ],
+  "coverage": {
+    "journeysExercised": [
+      "Buyer request and tests are shown",
+      "Vendor capability and buyer-environment compatibility are separate",
+      "Every stage of the evidence chain is visible",
+      "Simulated adapters are not presented as vendor agents",
+      "Crafting integration test evidence is shown",
+      "The verdict states its limits",
+      "One click runs the whole evaluation"
+    ],
+    "unreachable": [],
+    "confidenceNote": "7/7 cases passed.",
+    "flakyCaseIds": []
+  },
+  "narrative": "All 7 of 7 test cases passed — the Seldon project-judas-final evaluation page is fully functional across every tested journey. The landing page correctly surfaces the buyer request, vendor tests, and the run button. The live verdict table cleanly separates vendor capability from buyer-environment compatibility, with accurate evidence badges for both Airtable and monday.com. The four-stage evidence chain is fully visible on the Airtable card, and both vendor cards honestly disclose that the seller agent is the team's own adapter rather than the vendor's. Crafting integration test results display correctly with pass/fail indicators and resource identifiers. The page responsibly surfaces untested requirements and a production-reliability caveat. Clicking 'Run live evaluation' completed a fresh run in roughly 30 seconds and correctly showed two distinct result blocks. No failures or blocked cases were recorded; there are no headline risks to report.",
+  "openQuestions": []
+}

@@ -1,0 +1,20 @@
+# Seldon balances at 2026-11-07T23:02Z (read-only API calls, right after run-01 was refused)
+## get_task_balance
+{
+  "granted": 0,
+  "used": 0,
+  "remaining": 0,
+  "unit_price_usd": 3,
+  "pending": 0
+}
+## get_credit_balance
+{
+  "balance_usd": 0,
+  "granted_usd": 0,
+  "spent_usd": 0,
+  "rate_per_million_usd": 6,
+  "tokens_remaining": 0,
+  "tokens_granted": 0,
+  "tokens_spent": 0,
+  "enforced": false
+}

@@ -1,0 +1,38 @@
+Exposing http://127.0.0.1:8700 via a temporary Cloudflare tunnel ...
+2026-11-07T23:01:30Z INF Starting tunnel tunnelID=71f26d4a-5e0d-48f6-a862-dbe3853aa9db
+2026-11-07T23:01:30Z INF Version 2026.10.7 (Checksum 2136431d5eb467bf447d2ee514b713e192719b143aec1d9e09bf7dc290d5bb12)
+2026-11-07T23:01:30Z INF GOOS: darwin, GOVersion: go1.27.3, GoArch: arm64
+2026-11-07T23:01:30Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-11-07T23:01:30Z INF Generated Connector ID: 35668d16-292b-4816-80bb-211b4568e7d0
+2026-11-07T23:01:30Z INF Initial protocol quic
+2026-11-07T23:01:30Z INF ICMP proxy will use 192.168.0.178 as source for IPv4
+2026-11-07T23:01:30Z INF ICMP proxy will use fe80::143f:31be:68a6:4007 in zone en0 as source for IPv6
+2026-11-07T23:01:30Z INF Created ICMP proxy listening on 192.168.0.178:0
+2026-11-07T23:01:30Z INF ICMP proxy will use 192.168.0.178 as source for IPv4
+2026-11-07T23:01:30Z INF ICMP proxy will use fe80::143f:31be:68a6:4007 in zone en0 as source for IPv6
+2026-11-07T23:01:30Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2026-11-07T23:01:30Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.13
+2026-11-07T23:01:30Z INF Registered tunnel connection connIndex=0 connection=f3f2f272-eb6b-4743-9cc1-27c8fbd52e7a event=0 ip=198.41.200.13 location=sjc11 protocol=quic
+Tunnel ready — routing this run to https://tnl-da83db62717d.joinblok.co (active for up to 30 min; the run must finish within that window).
+Running seldon.yml (1 case(s)) for project-judas-smoke against https://tnl-da83db62717d.joinblok.co [hackathon, judas, smoke, build-df0567d] ...
+2026-11-07T23:01:30Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=1 event=0 ip=198.41.192.107
+2026-11-07T23:01:30Z INF Updated to new configuration config="{\"ingress\":[{\"hostname\":\"tnl-da83db62717d.joinblok.co\", \"originRequest\":{\"httpHostHeader\":\"127.0.0.1:8700\"}, \"service\":\"http://127.0.0.1:8700\"}, {\"service\":\"http_status:404\"}], \"warp-routing\":{\"enabled\":false}}" version=1
+2026-11-07T23:01:31Z INF Registered tunnel connection connIndex=1 connection=14e7669c-e979-4933-aa0b-565974114979 event=0 ip=198.41.192.107 location=sjc06 protocol=quic
+2026-11-07T23:01:31Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=2 event=0 ip=198.41.200.43
+2026-11-07T23:01:32Z INF Registered tunnel connection connIndex=2 connection=0d6d74fd-6e5a-4507-a447-cfa115fa41fc event=0 ip=198.41.200.43 location=sjc07 protocol=quic
+2026-11-07T23:01:32Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=3 event=0 ip=198.41.192.167
+You've used all your simulations. Buy more to keep running tests.
+2026-11-07T23:01:33Z INF Initiating graceful shutdown due to signal terminated ...
+2026-11-07T23:01:33Z INF Retrying connection in up to 2s connIndex=2 event=0 ip=198.41.200.43
+2026-11-07T23:01:33Z INF Retrying connection in up to 2s connIndex=1 event=0 ip=198.41.192.107
+2026-11-07T23:01:33Z INF Retrying connection in up to 2s connIndex=0 event=0 ip=198.41.200.13
+2026-11-07T23:01:33Z INF Registered tunnel connection connIndex=3 connection=cd8a7010-0054-4b55-9ee7-7f4d9628757d event=0 ip=198.41.192.167 location=sjc06 protocol=quic
+2026-11-07T23:01:33Z INF Retrying connection in up to 2s connIndex=3 event=0 ip=198.41.192.167
+2026-11-07T23:01:33Z ERR Connection terminated connIndex=2
+2026-11-07T23:01:33Z ERR Connection terminated connIndex=1
+2026-11-07T23:01:33Z ERR Connection terminated connIndex=0
+2026-11-07T23:01:33Z ERR Connection terminated connIndex=3
+2026-11-07T23:01:33Z ERR no more connections active and exiting
+2026-11-07T23:01:33Z INF Tunnel server stopped
+2026-11-07T23:01:33Z INF Metrics server stopped
+exit:1

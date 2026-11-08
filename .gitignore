@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/
+.pytest_cache/
+.superpowers/
+
+# Seldon CLI local state (last-run pointers)
+.seldon/
+
+.DS_Store

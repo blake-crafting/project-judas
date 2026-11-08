@@ -1,0 +1,8 @@
+🤖  Seldon — agent thinking  b0f403bd-6103-43d1-bf0a-d2c329fd283f
+   Seldon QA: project-judas-smoke · 1 case
+
+── QA Agent · case 0
+   ↳ https://tnl-4f5046105f48.joinblok.co/
+🤖  step 2  App is open, no login wall. I see a "PROJECT JUDAS" tab plus BUYER/EVENT LOG tabs, a Buyer brief panel, Agent registry, Seller answer. Acceptance wants a Buyer request panel and Vendor comparison section — likely under the PROJECT JUDAS tab. Click it.
+   ↳ https://tnl-4f5046105f48.joinblok.co/judas
+🤖  step 3  The Project Judas page is fully rendered: title "Project Judas" at top, "01 Buyer request" panel with request textarea and Evaluate both button, "03 Vendor comparison" section with legend chips. All acceptance criteria met. Done.

@@ -1,0 +1,6 @@
+a2a-sdk[http-server]==1.3.0
+uvicorn
+httpx
+pytest
+mcp==2.3.0
+pyyaml

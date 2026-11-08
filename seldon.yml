@@ -1,0 +1,64 @@
+# Seldon Wren QA for Project Judas (independent QA of the app itself, not of Ramp or Brex).
+# Run: seldon run --file seldon.yml --url http://127.0.0.1:8700/judas --wait --label <label>
+version: 1
+name: project-judas
+labels: [hackathon, judas]
+run:
+  url: http://127.0.0.1:8700/judas
+testCases:
+  - id: open-judas
+    name: Judas evaluation page opens
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+    criteria: a page titled Project Judas with a Buyer request panel and a Vendor comparison section is shown
+
+  - id: load-scenario
+    name: Buyer loads the Ramp vs Brex scenario
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+    criteria: the request box is filled with the buyer scenario and seven requirements are listed under it
+
+  - id: discover-vendors
+    name: Both vendor agents are discovered
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Discover agents and wait a few seconds
+    criteria: both the Ramp and the Brex seller agents are shown as discovered
+
+  - id: contact-ramp
+    name: Ramp agent answers with cited documentation
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Discover agents and wait a few seconds
+      - click Contact Ramp and wait for the answers to appear
+    criteria: Ramp's answers appear and at least one answer shows a documentation source from docs.ramp.com
+
+  - id: contact-brex
+    name: Brex agent answers with cited documentation
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Discover agents and wait a few seconds
+      - click Contact Brex and wait for the answers to appear
+    criteria: Brex's answers appear and at least one answer shows a documentation source from developer.brex.com
+
+  - id: view-comparison
+    name: Buyer sees the vendor comparison
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Evaluate both and wait up to 20 seconds for it to finish
+      - scroll to the Vendor comparison section
+    criteria: a verdict with documentation coverage for Ramp and Brex is shown, together with a caveat, above a comparison table that lists the requirements with a Ramp column and a Brex column
+
+  - id: interaction-history
+    name: Interaction history records the exchanges
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Evaluate both and wait up to 20 seconds for it to finish
+      - open Interaction history at the bottom of the page
+    criteria: timestamped events are listed, including agent discovery and messages to both Ramp and Brex

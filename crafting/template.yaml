@@ -1,0 +1,31 @@
+---
+overview: |
+  # judas-incident-eval (Project Judas hackathon)
+  Isolated buyer-application environment used by Project Judas to test how a
+  workflow vendor integration behaves inside a fictional company's app
+  (Northstar Commerce). One sandbox per vendor, same baseline.
+
+  - `app` workspace: checkout service (:8081) emits order-failure events to the
+    incident-sync service (:8080), which stores incident state in Postgres and
+    syncs it to the vendor (Airtable or monday.com).
+  - `db`: Postgres holding the buyer's internal incident state.
+
+  Code is delivered by the Judas runner (crafting/runner.py) with `cs scp`.
+  Fictional data only. No shared cluster, no interception.
+env:
+  - DB_HOST=db
+  - DB_NAME=northstar
+workspaces:
+  - name: app
+    ports:
+      - name: incident
+        port: 8080
+        protocol: HTTP/TCP
+      - name: checkout
+        port: 8081
+        protocol: HTTP/TCP
+dependencies:
+  - name: db
+    service_type: postgres
+    properties:
+      database: northstar

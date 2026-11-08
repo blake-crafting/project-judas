@@ -1,0 +1,56 @@
+# Seldon Wren QA for the FINAL build (branch feature/final-demo): one integrated buyer evaluation,
+# Airtable vs monday.com via official MCP + Crafting integration tests + independent verification.
+# The tunnel lands on the app root, so every case first navigates to the Real vendors (live) tab.
+version: 1
+name: project-judas-final
+labels: [hackathon, judas, final, crafting]
+run:
+  url: http://127.0.0.1:8700/judas/live
+testCases:
+  - id: open-live
+    name: Buyer request and tests are shown
+    steps:
+      - open the app, click the "Project Judas" tab at the top, then click the "Real vendors (live)" tab
+    criteria: the page shows a buyer request about incident tracking for a multi-service e-commerce application, a list of vendor tests, and a "Run live evaluation" button
+
+  - id: run-live-evaluation
+    name: One click runs the whole evaluation
+    steps:
+      - open the app, click the "Project Judas" tab at the top, then click the "Real vendors (live)" tab
+      - click "Run live evaluation" and wait up to 3 minutes until the Live verdict is updated
+    criteria: the page says a new live run was completed (or joined) and the Live verdict shows two separate results, one for vendor capability and one for buyer-environment compatibility
+
+  - id: stage-chain
+    name: Every stage of the evidence chain is visible
+    steps:
+      - open the app, click the "Project Judas" tab at the top, then click the "Real vendors (live)" tab
+      - look at the Airtable card under "Vendors and what actually happened"
+    criteria: the Airtable card lists Stage 1 (A2A to the adapter), Stage 2 (official MCP calls to mcp.airtable.com with created incident ids), Stage 3 (a Crafting sandbox) and Stage 4 (Judas independent check with a count of matching values)
+
+  - id: truthful-labels
+    name: Simulated adapters are not presented as vendor agents
+    steps:
+      - open the app, click the "Project Judas" tab at the top, then click the "Real vendors (live)" tab
+      - read the Airtable and monday.com cards and the footer
+    criteria: each card says the seller agent is our A2A adapter not operated by that vendor, and the vendor interface is that vendor's official MCP server
+
+  - id: crafting-evidence
+    name: Crafting integration test evidence is shown
+    steps:
+      - open the app, click the "Project Judas" tab at the top, then click the "Real vendors (live)" tab
+      - look at the monday.com card's "Crafting integration test" box
+    criteria: the box names a Crafting sandbox and lists integration tests, including repeated events and status sync, each marked as passed or failed, plus the resource ids involved
+
+  - id: capability-vs-environment
+    name: Vendor capability and buyer-environment compatibility are separate
+    steps:
+      - open the app, click the "Project Judas" tab at the top, then click the "Real vendors (live)" tab
+      - scroll to the Live verdict table
+    criteria: the table has a "Vendor capability" section with rows A1 to A4 and a separate "Buyer-environment compatibility" section with rows C1 to C3, each cell showing an evidence level for Airtable and for monday.com
+
+  - id: verdict-limits
+    name: The verdict states its limits
+    steps:
+      - open the app, click the "Project Judas" tab at the top, then click the "Real vendors (live)" tab
+      - scroll to the bottom of the Live verdict section
+    criteria: the page lists requirements that are still untested and includes a caveat that one run does not prove production reliability

@@ -1,0 +1,201 @@
+title: List transactions
+path: /developer/v1/transactions
+description: This endpoint supports filtering and ordering. If state is not set, all transactions except declined transactions will be returned. Note that setting multiple ordering parameters is unsupported.
+
+request: none
+
+response: {
+  data: {
+  accounting_categories?: {
+  category_id?: string
+  category_name?: string
+  tracking_category_remote_id?: string
+  tracking_category_remote_name?: string
+  tracking_category_remote_type?: string
+}[]
+  accounting_date: string /* date */ | null
+  accounting_field_selections?: {
+  category_info?: {
+  external_id?: string
+  id?: string
+  name?: string
+  type?: 'AMORTIZATION_TEMPLATE' | 'BILLABLE' | 'COST_CENTER' | 'CUSTOMERS_JOBS' | 'DEFERRAL_CODE' | 'EXPENSE_ENTITY' | 'GL_ACCOUNT' | 'INVENTORY_ITEM' | 'JOURNAL' | 'MERCHANT' | 'NON_ERP' | 'OTHER' | 'PAYROLL_PROVIDER' | 'PROJECT' | 'REPORTING_TAG' | 'SALES_TAX_CODE' | 'SUBSIDIARY' | 'TAX_CODE' | 'UNIT_OF_MEASURE'
+}
+  display_name: string | null
+  external_code?: string
+  external_id?: string
+  id?: string
+  name?: string
+  provider_name: string
+  source?: {
+  type?: string
+}
+  type?: 'AMORTIZATION_TEMPLATE' | 'BILLABLE' | 'COST_CENTER' | 'CUSTOMERS_JOBS' | 'DEFERRAL_CODE' | 'EXPENSE_ENTITY' | 'GL_ACCOUNT' | 'INVENTORY_ITEM' | 'JOURNAL' | 'MERCHANT' | 'NON_ERP' | 'OTHER' | 'PAYROLL_PROVIDER' | 'PROJECT' | 'REPORTING_TAG' | 'SALES_TAX_CODE' | 'SUBSIDIARY' | 'TAX_CODE' | 'UNIT_OF_MEASURE'
+}[]
+  all_requirements_met_and_approved: boolean
+  amount?: number
+  attendees?: {
+  name: string
+  user_id: string | null
+}[]
+  card_holder?: {
+  department_id?: string
+  department_name?: string
+  employee_id?: string
+  first_name?: string
+  last_name?: string
+  location_id?: string
+  location_name?: string
+  user_id?: string
+}
+  card_id?: string
+  card_present: boolean
+  currency_code?: string
+  decline_details?: {
+  amount?: number
+  declined_amount: {
+  currency: 'AED' | 'AFN' | 'ALL' | 'AMD' | 'ANG' | 'AOA' | 'ARS' | 'AUD' | 'AWG' | 'AZN' | 'BAM' | 'BBD' | 'BDT' | 'BGN' | 'BHD' | 'BIF' | 'BMD' | 'BND' | 'BOB' | 'BOV' | 'BRL' | 'BSD' | 'BTN' | 'BWP' | 'BYN' | 'BZD' | 'CAD' | 'CDF' | 'CHE' | 'CHF' | 'CHW' | 'CLF' | 'CLP' | 'CNH' | 'CNY' | 'COP' | 'COU' | 'CRC' | 'CUC' | 'CUP' | 'CVE' | 'CZK' | 'DJF' | 'DKK' | 'DOP' | 'DZD' | 'EGP' | 'ERN' | 'ETB' | 'EUR' | 'EURC' | 'FJD' | 'FKP' | 'GBP' | 'GEL' | 'GHS' | 'GIP' | 'GMD' | 'GNF' | 'GTQ' | 'GYD' | 'HKD' | 'HNL' | 'HRK' | 'HTG' | 'HUF' | 'IDR' | 'ILS' | 'INR' | 'IQD' | 'IRR' | 'ISK' | 'JMD' | 'JOD' | 'JPY' | 'KES' | 'KGS' | 'KHR' | 'KMF' | 'KPW' | 'KRW' | 'KWD' | 'KYD' | 'KZT' | 'LAK' | 'LBP' | 'LKR' | 'LRD' | 'LSL' | 'LYD' | 'MAD' | 'MDL' | 'MGA' | 'MKD' | 'MMK' | 'MNT' | 'MOP' | 'MRU' | 'MUR' | 'MVR' | 'MWK' | 'MXN' | 'MXV' | 'MYR' | 'MZN' | 'NAD' | 'NGN' | 'NIO' | 'NOK' | 'NPR' | 'NZD' | 'OMR' | 'OPEN_USD' | 'PAB' | 'PEN' | 'PGK' | 'PHP' | 'PKR' | 'PLN' | 'PYG' | 'QAR' | 'RON' | 'RSD' | 'RUB' | 'RWF' | 'SAR' | 'SBD' | 'SCR' | 'SDG' | 'SEK' | 'SGD' | 'SHP' | 'SLE' | 'SLL' | 'SOS' | 'SRD' | 'SSP' | 'STN' | 'SVC' | 'SYP' | 'SZL' | 'THB' | 'TJS' | 'TMT' | 'TND' | 'TOP' | 'TRY' | 'TTD' | 'TWD' | 'TZS' | 'UAH' | 'UGX' | 'USD' | 'USDB' | 'USDC' | 'USDG' | 'USDT' | 'USN' | 'UYI' | 'UYU' | 'UYW' | 'UZS' | 'VED' | 'VES' | 'VND' | 'VUV' | 'WST' | 'XAD' | 'XAF' | 'XAG' | 'XAU' | 'XBA' | 'XBB' | 'XBC' | 'XBD' | 'XCD' | 'XCG' | 'XDR' | 'XOF' | 'XPD' | 'XPF' | 'XPT' | 'XSU' | 'XTS' | 'XUA' | 'XXX' | 'YER' | 'ZAR' | 'ZMW' | 'ZWG' | 'ZWL'
+  value: number
+} | null
+  reason?: 'AUTHORIZER' | 'AUTHORIZER_AP_CARD_VELOCITY_LIMIT' | 'AUTHORIZER_BUSINESS_LIMIT' | 'AUTHORIZER_BUSINESS_SUSPENDED' | 'AUTHORIZER_BUSINESS_VENDOR_BLACKLIST' | 'AUTHORIZER_CARD_AUTO_LOCK_DATE' | 'AUTHORIZER_CARD_CATEGORY_BLACKLIST' | 'AUTHORIZER_CARD_CATEGORY_WHITELIST' | 'AUTHORIZER_CARD_LIMIT' | 'AUTHORIZER_CARD_MCC_BLACKLIST' | 'AUTHORIZER_CARD_MISSING_POLICY_ITEMS' | 'AUTHORIZER_CARD_NOT_ACTIVATED' | 'AUTHORIZER_CARD_NOT_FOUND' | 'AUTHORIZER_CARD_PARTIALLY_ACTIVATED' | 'AUTHORIZER_CARD_START_DATE' | 'AUTHORIZER_CARD_SUSPENDED' | 'AUTHORIZER_CARD_TASK_SANCTION' | 'AUTHORIZER_CARD_TOTAL_ACTIVATION_REQUIRED' | 'AUTHORIZER_CARD_VENDOR_BLACKLIST' | 'AUTHORIZER_CARD_VENDOR_WHITELIST' | 'AUTHORIZER_COMMANDO_MODE' | 'AUTHORIZER_FRAUD' | 'AUTHORIZER_FREEZE_TRANSACTIONS_RISK' | 'AUTHORIZER_GLOBAL_MCC_BLACKLIST' | 'AUTHORIZER_MEMBER_LIMIT' | 'AUTHORIZER_NON_AP_CARD_VELOCITY_LIMIT' | 'AUTHORIZER_OOB_BLOCKED_MERCHANT' | 'AUTHORIZER_OOB_DAILY_BUSINESS_BALANCE' | 'AUTHORIZER_OOB_DAILY_CARD_SPEND' | 'AUTHORIZER_RAMP_AUTHORIZATION_METHODS' | 'AUTHORIZER_RAMP_TRANSACTION_AMOUNT_LIMIT' | 'AUTHORIZER_RAMP_VENDOR_RESTRICTIONS' | 'AUTHORIZER_SPEND_ALLOCATION_ARCHIVED_FUNDS' | 'AUTHORIZER_SPEND_ALLOCATION_MEMBER_SUSPENDED' | 'AUTHORIZER_SPEND_ALLOCATION_SUSPENDED' | 'AUTHORIZER_TRANSACTION_AMOUNT_LIMIT' | 'AUTHORIZER_UNAUTHORIZED_USER' | 'AUTHORIZER_UNDER_TRANSACTION_AMOUNT_LIMIT' | 'AUTHORIZER_USER_LIMIT' | 'AUTHORIZER_USER_SUSPENDED' | 'BLOCKED_COUNTRY' | 'CARD_EXPIRED' | 'CARD_LOST_OR_STOLEN' | 'CARD_TERMINATED' | 'CHIP_FAILURE' | 'FORBIDDEN_CATEGORY' | 'INSECURE_AUTHORIZATION_METHOD' | 'INSUFFICIENT_FUNDS' | 'INVALID_PIN' | 'MISSING_CVV' | 'MISSING_EXPIRATION' | 'MOBILE_WALLET_FAILURE' | 'MOBILE_WALLET_TOKEN_NOT_FOUND' | 'MOBILE_WALLET_TOKEN_TERMINATED' | 'NETWORK_DECLINE_ACCOUNT_VERIFICATION' | 'NETWORK_DECLINE_ADVICE' | 'NETWORK_DECLINE_ADVICE_ACQUIRER_ISSUE' | 'NETWORK_DECLINE_ADVICE_ADDITIONAL_AUTHENTICATION_REQUIRED' | 'NETWORK_DECLINE_ADVICE_FORCED_STIP_BY_ISSUER' | 'NETWORK_DECLINE_ADVICE_ISSUER_LOGGED_OFF' | 'NETWORK_DECLINE_ADVICE_ISSUER_TIMEOUT' | 'NETWORK_DECLINE_ADVICE_ISSUER_UNAVAILABLE' | 'NETWORK_DECLINE_ADVICE_PIN_ERROR' | 'NETWORK_DECLINE_ADVICE_RECURRING_PAYMENT' | 'NETWORK_DECLINE_ADVICE_SELECTIVE_ACCEPTANCE_SERVICE' | 'NETWORK_DECLINE_ADVICE_SUSPECTED_FRAUD_TRANSACTION' | 'NETWORK_DECLINE_ADVICE_TOKEN_PROVISIONING_SERVICE' | 'NETWORK_DECLINE_ADVICE_VISA_PAYMENT_CONTROLS_RULE' | 'NOT_ACTIVE' | 'NOT_ALLOWED' | 'NO_AUTO_ROUTED_LIMITS_AVAILABLE' | 'NO_LINKED_SPEND_ALLOCATION' | 'OFAC_VERIFICATION_NEEDED' | 'OPEN_TO_BUY_LIMIT' | 'OTHER' | 'PIN_BLOCKED' | 'PIN_TRY_LIMIT_EXCEEDED' | 'PROCESSOR_CAP' | 'QUASI_CASH' | 'ROUTED_TO_TERMINATED_SPEND_ALLOCATION' | 'STRIPE_WEBHOOK_TIMEOUT' | 'SUSPECTED_BIN_ATTACK' | 'SUSPECTED_FRAUD' | 'THREE_D_SECURE_REQUIRED' | 'USER_BLOCKED' | 'USER_TERMINATED' | 'WRONG_ADDRESS' | 'WRONG_CVV' | 'WRONG_EXPIRATION' | 'WRONG_POSTAL_CODE'
+}
+  disputes?: {
+  created_at?: string /* date */
+  id?: string
+  memo?: string
+  type?: string
+}[]
+  entity_amount: {
+  currency: 'AED' | 'AFN' | 'ALL' | 'AMD' | 'ANG' | 'AOA' | 'ARS' | 'AUD' | 'AWG' | 'AZN' | 'BAM' | 'BBD' | 'BDT' | 'BGN' | 'BHD' | 'BIF' | 'BMD' | 'BND' | 'BOB' | 'BOV' | 'BRL' | 'BSD' | 'BTN' | 'BWP' | 'BYN' | 'BZD' | 'CAD' | 'CDF' | 'CHE' | 'CHF' | 'CHW' | 'CLF' | 'CLP' | 'CNH' | 'CNY' | 'COP' | 'COU' | 'CRC' | 'CUC' | 'CUP' | 'CVE' | 'CZK' | 'DJF' | 'DKK' | 'DOP' | 'DZD' | 'EGP' | 'ERN' | 'ETB' | 'EUR' | 'EURC' | 'FJD' | 'FKP' | 'GBP' | 'GEL' | 'GHS' | 'GIP' | 'GMD' | 'GNF' | 'GTQ' | 'GYD' | 'HKD' | 'HNL' | 'HRK' | 'HTG' | 'HUF' | 'IDR' | 'ILS' | 'INR' | 'IQD' | 'IRR' | 'ISK' | 'JMD' | 'JOD' | 'JPY' | 'KES' | 'KGS' | 'KHR' | 'KMF' | 'KPW' | 'KRW' | 'KWD' | 'KYD' | 'KZT' | 'LAK' | 'LBP' | 'LKR' | 'LRD' | 'LSL' | 'LYD' | 'MAD' | 'MDL' | 'MGA' | 'MKD' | 'MMK' | 'MNT' | 'MOP' | 'MRU' | 'MUR' | 'MVR' | 'MWK' | 'MXN' | 'MXV' | 'MYR' | 'MZN' | 'NAD' | 'NGN' | 'NIO' | 'NOK' | 'NPR' | 'NZD' | 'OMR' | 'OPEN_USD' | 'PAB' | 'PEN' | 'PGK' | 'PHP' | 'PKR' | 'PLN' | 'PYG' | 'QAR' | 'RON' | 'RSD' | 'RUB' | 'RWF' | 'SAR' | 'SBD' | 'SCR' | 'SDG' | 'SEK' | 'SGD' | 'SHP' | 'SLE' | 'SLL' | 'SOS' | 'SRD' | 'SSP' | 'STN' | 'SVC' | 'SYP' | 'SZL' | 'THB' | 'TJS' | 'TMT' | 'TND' | 'TOP' | 'TRY' | 'TTD' | 'TWD' | 'TZS' | 'UAH' | 'UGX' | 'USD' | 'USDB' | 'USDC' | 'USDG' | 'USDT' | 'USN' | 'UYI' | 'UYU' | 'UYW' | 'UZS' | 'VED' | 'VES' | 'VND' | 'VUV' | 'WST' | 'XAD' | 'XAF' | 'XAG' | 'XAU' | 'XBA' | 'XBB' | 'XBC' | 'XBD' | 'XCD' | 'XCG' | 'XDR' | 'XOF' | 'XPD' | 'XPF' | 'XPT' | 'XSU' | 'XTS' | 'XUA' | 'XXX' | 'YER' | 'ZAR' | 'ZMW' | 'ZWG' | 'ZWL'
+  value: number
+} | null
+  entity_id: string | null
+  fund_id?: string
+  id?: string
+  limit_id?: string
+  line_items?: {
+  accounting_field_selections?: {
+  category_info?: {
+  external_id?: string
+  id?: string
+  name?: string
+  type?: 'AMORTIZATION_TEMPLATE' | 'BILLABLE' | 'COST_CENTER' | 'CUSTOMERS_JOBS' | 'DEFERRAL_CODE' | 'EXPENSE_ENTITY' | 'GL_ACCOUNT' | 'INVENTORY_ITEM' | 'JOURNAL' | 'MERCHANT' | 'NON_ERP' | 'OTHER' | 'PAYROLL_PROVIDER' | 'PROJECT' | 'REPORTING_TAG' | 'SALES_TAX_CODE' | 'SUBSIDIARY' | 'TAX_CODE' | 'UNIT_OF_MEASURE'
+}
+  display_name: string | null
+  external_code?: string
+  external_id?: string
+  id?: string
+  name?: string
+  provider_name: string
+  source?: {
+  type?: string
+}
+  type?: 'AMORTIZATION_TEMPLATE' | 'BILLABLE' | 'COST_CENTER' | 'CUSTOMERS_JOBS' | 'DEFERRAL_CODE' | 'EXPENSE_ENTITY' | 'GL_ACCOUNT' | 'INVENTORY_ITEM' | 'JOURNAL' | 'MERCHANT' | 'NON_ERP' | 'OTHER' | 'PAYROLL_PROVIDER' | 'PROJECT' | 'REPORTING_TAG' | 'SALES_TAX_CODE' | 'SUBSIDIARY' | 'TAX_CODE' | 'UNIT_OF_MEASURE'
+}[]
+  amount: {
+  amount: number
+  currency_code: string
+  minor_unit_conversion_rate: number | null
+} | null
+  converted_amount: {
+  amount: number
+  currency_code: string
+  minor_unit_conversion_rate: number | null
+} | null
+  id?: string | null
+  memo?: string
+}[]
+  memo?: string | null
+  merchant_amount: {
+  currency: 'AED' | 'AFN' | 'ALL' | 'AMD' | 'ANG' | 'AOA' | 'ARS' | 'AUD' | 'AWG' | 'AZN' | 'BAM' | 'BBD' | 'BDT' | 'BGN' | 'BHD' | 'BIF' | 'BMD' | 'BND' | 'BOB' | 'BOV' | 'BRL' | 'BSD' | 'BTN' | 'BWP' | 'BYN' | 'BZD' | 'CAD' | 'CDF' | 'CHE' | 'CHF' | 'CHW' | 'CLF' | 'CLP' | 'CNH' | 'CNY' | 'COP' | 'COU' | 'CRC' | 'CUC' | 'CUP' | 'CVE' | 'CZK' | 'DJF' | 'DKK' | 'DOP' | 'DZD' | 'EGP' | 'ERN' | 'ETB' | 'EUR' | 'EURC' | 'FJD' | 'FKP' | 'GBP' | 'GEL' | 'GHS' | 'GIP' | 'GMD' | 'GNF' | 'GTQ' | 'GYD' | 'HKD' | 'HNL' | 'HRK' | 'HTG' | 'HUF' | 'IDR' | 'ILS' | 'INR' | 'IQD' | 'IRR' | 'ISK' | 'JMD' | 'JOD' | 'JPY' | 'KES' | 'KGS' | 'KHR' | 'KMF' | 'KPW' | 'KRW' | 'KWD' | 'KYD' | 'KZT' | 'LAK' | 'LBP' | 'LKR' | 'LRD' | 'LSL' | 'LYD' | 'MAD' | 'MDL' | 'MGA' | 'MKD' | 'MMK' | 'MNT' | 'MOP' | 'MRU' | 'MUR' | 'MVR' | 'MWK' | 'MXN' | 'MXV' | 'MYR' | 'MZN' | 'NAD' | 'NGN' | 'NIO' | 'NOK' | 'NPR' | 'NZD' | 'OMR' | 'OPEN_USD' | 'PAB' | 'PEN' | 'PGK' | 'PHP' | 'PKR' | 'PLN' | 'PYG' | 'QAR' | 'RON' | 'RSD' | 'RUB' | 'RWF' | 'SAR' | 'SBD' | 'SCR' | 'SDG' | 'SEK' | 'SGD' | 'SHP' | 'SLE' | 'SLL' | 'SOS' | 'SRD' | 'SSP' | 'STN' | 'SVC' | 'SYP' | 'SZL' | 'THB' | 'TJS' | 'TMT' | 'TND' | 'TOP' | 'TRY' | 'TTD' | 'TWD' | 'TZS' | 'UAH' | 'UGX' | 'USD' | 'USDB' | 'USDC' | 'USDG' | 'USDT' | 'USN' | 'UYI' | 'UYU' | 'UYW' | 'UZS' | 'VED' | 'VES' | 'VND' | 'VUV' | 'WST' | 'XAD' | 'XAF' | 'XAG' | 'XAU' | 'XBA' | 'XBB' | 'XBC' | 'XBD' | 'XCD' | 'XCG' | 'XDR' | 'XOF' | 'XPD' | 'XPF' | 'XPT' | 'XSU' | 'XTS' | 'XUA' | 'XXX' | 'YER' | 'ZAR' | 'ZMW' | 'ZWG' | 'ZWL'
+  value: number
+} | null
+  merchant_category_code?: string
+  merchant_category_code_description?: string
+  merchant_data?: {
+  auto_rental: {
+  check_out?: string
+  days?: number
+} | null
+  flight: {
+  departure_date: string | null
+  passenger_name?: string
+  segments: ApiTransactionPurchaseFlightSegment[] | null
+} | null
+  lodging: {
+  check_in?: string
+  nights: number | null
+} | null
+  receipt: {
+  items?: ApiTransactionPurchaseReceiptLineItem[]
+} | null
+  reference: string | null
+}
+  merchant_descriptor?: string
+  merchant_id: string | null
+  merchant_location: {
+  city: string | null
+  country: string | null
+  postal_code: string | null
+  state: string | null
+} | null
+  merchant_name?: string | null
+  minor_unit_conversion_rate: number | null
+  network_merchant_id: string | null
+  original_transaction_amount: {
+  amount: number
+  currency_code: string
+  minor_unit_conversion_rate: number | null
+} | null
+  original_transaction_id: string | null
+  policy_violations?: {
+  created_at?: string /* date */
+  id?: string
+  memo?: string
+  type?: string
+}[]
+  receipts?: string[]
+  requires_accounting_vendor_creation_to_sync?: boolean
+  settlement_date?: string /* date */
+  sk_category_id: number | null
+  sk_category_name: string | null
+  spend_program_id?: string
+  state?: 'ALL' | 'CLEARED' | 'COMPLETION' | 'DECLINED' | 'ERROR' | 'PENDING' | 'PENDING_INITIATION'
+  statement_id?: string
+  sync_status: 'NOT_SYNC_READY' | 'SYNCED' | 'SYNC_READY'
+  synced_at: string /* date */ | null
+  trip_id: string | null
+  trip_name: string | null
+  updated_at: string /* date */ | null
+  user_transaction_time?: string /* date */
+}[]
+  page: {
+  next: string | null
+  total_count: number | null
+  total_count_capped: boolean | null
+}
+}
+
+---
+
+title: Creates a new webhook subscription
+path: /developer/v1/webhooks
+description: The newly registered subscription will be in the pending verficiation state. You will need to verify your endpoint with the provided challenge.
+
+request: {
+  additional_headers?: Record<string, unknown>
+  endpoint_url: string
+  event_types: ('applications.status_updated' | 'bills.approved' | 'bills.archived' | 'bills.created' | 'bills.paid' | 'bills.ready_to_sync' | 'bills.rejected' | 'bills.updated' | 'draft_bills.created' | 'entities.created' | 'item_receipts.created' | 'payments.updated' | 'purchase_orders.archived' | 'purchase_orders.created' | 'purchase_orders.updated' | 'reimbursements.batch_payment_reimbursed' | 'reimbursements.ready_for_review' | 'reimbursements.ready_to_sync' | 'reimbursements.sync_requested' | 'spend_requests.comment_created' | 'spend_requests.created' | 'tests.test_event' | 'transactions.all_requirements_met_and_approved_changed' | 'transactions.authorized' | 'transactions.body_coding_updated' | 'transactions.cleared' | 'transactions.declined' | 'transactions.ready_for_review' | 'transactions.ready_to_sync' | 'transactions.receipt_added' | 'transactions.sync_requested' | 'transactions.synced' | 'unified_requests.created' | 'unified_requests.external_approval_request' | 'unified_requests.external_approval_request_reset' | 'unified_requests.modified' | 'unified_requests.node_advanced' | 'unified_requests.override_approved' | 'unified_requests.updated' | 'users.invite_accepted' | 'vendor_agreements.archived' | 'vendor_agreements.created' | 'vendor_agreements.deleted' | 'vendor_agreements.document_added' | 'vendor_agreements.renewal_milestone' | 'vendor_agreements.updated' | 'vendors.activated' | 'vendors.approved' | 'vendors.updated' | 'webhooks.verification')[]
+}
+
+response: {
+  additional_headers: Record<string, unknown>
+  business_id?: string
+  created_at: string /* date */
+  endpoint_url: string
+  event_types: ('applications.status_updated' | 'bills.approved' | 'bills.archived' | 'bills.created' | 'bills.paid' | 'bills.ready_to_sync' | 'bills.rejected' | 'bills.updated' | 'draft_bills.created' | 'entities.created' | 'item_receipts.created' | 'payments.updated' | 'purchase_orders.archived' | 'purchase_orders.created' | 'purchase_orders.updated' | 'reimbursements.batch_payment_reimbursed' | 'reimbursements.ready_for_review' | 'reimbursements.ready_to_sync' | 'reimbursements.sync_requested' | 'spend_requests.comment_created' | 'spend_requests.created' | 'tests.test_event' | 'transactions.all_requirements_met_and_approved_changed' | 'transactions.authorized' | 'transactions.body_coding_updated' | 'transactions.cleared' | 'transactions.declined' | 'transactions.ready_for_review' | 'transactions.ready_to_sync' | 'transactions.receipt_added' | 'transactions.sync_requested' | 'transactions.synced' | 'unified_requests.created' | 'unified_requests.external_approval_request' | 'unified_requests.external_approval_request_reset' | 'unified_requests.modified' | 'unified_requests.node_advanced' | 'unified_requests.override_approved' | 'unified_requests.updated' | 'users.invite_accepted' | 'vendor_agreements.archived' | 'vendor_agreements.created' | 'vendor_agreements.deleted' | 'vendor_agreements.document_added' | 'vendor_agreements.renewal_milestone' | 'vendor_agreements.updated' | 'vendors.activated' | 'vendors.approved' | 'vendors.updated' | 'webhooks.verification')[]
+  id: string
+  secret: string
+  status: 'active' | 'inactive' | 'pending_verification'
+  updated_at: string /* date */
+}

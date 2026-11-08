@@ -1,0 +1,89 @@
+{
+  "experimentId": "7b31724c-fa9a-4b5a-af37-92a73b517901",
+  "planTitle": "Seldon QA: project-judas",
+  "status": "complete",
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "blocked": 0,
+    "timedOut": 0,
+    "passRate": 1,
+    "headline": "7/7 passed (100%)."
+  },
+  "failures": [],
+  "passed": [
+    {
+      "id": "open-judas",
+      "title": "Judas evaluation page opens",
+      "area": "general",
+      "durationSeconds": 47.479,
+      "startedAt": "2026-11-07T23:06:50.06231+00:00",
+      "completedAt": "2026-11-07T23:07:37.541595+00:00"
+    },
+    {
+      "id": "discover-vendors",
+      "title": "Both vendor agents are discovered",
+      "area": "general",
+      "durationSeconds": 72.328,
+      "startedAt": "2026-11-07T23:06:46.160126+00:00",
+      "completedAt": "2026-11-07T23:07:58.488129+00:00"
+    },
+    {
+      "id": "view-comparison",
+      "title": "Buyer sees the vendor comparison",
+      "area": "general",
+      "durationSeconds": 102.338,
+      "startedAt": "2026-11-07T23:06:44.102029+00:00",
+      "completedAt": "2026-11-07T23:08:26.440189+00:00"
+    },
+    {
+      "id": "contact-ramp",
+      "title": "Ramp agent answers with cited documentation",
+      "area": "general",
+      "durationSeconds": 124.205,
+      "startedAt": "2026-11-07T23:06:49.415988+00:00",
+      "completedAt": "2026-11-07T23:08:53.62098+00:00"
+    },
+    {
+      "id": "contact-brex",
+      "title": "Brex agent answers with cited documentation",
+      "area": "general",
+      "durationSeconds": 138.387,
+      "startedAt": "2026-11-07T23:06:52.177002+00:00",
+      "completedAt": "2026-11-07T23:09:10.56359+00:00"
+    },
+    {
+      "id": "interaction-history",
+      "title": "Interaction history records the exchanges",
+      "area": "general",
+      "durationSeconds": 179.887,
+      "startedAt": "2026-11-07T23:06:51.491359+00:00",
+      "completedAt": "2026-11-07T23:09:51.378182+00:00"
+    },
+    {
+      "id": "load-scenario",
+      "title": "Buyer loads the Ramp vs Brex scenario",
+      "area": "general",
+      "durationSeconds": 98.971,
+      "startedAt": "2026-11-07T23:06:48.564092+00:00",
+      "completedAt": "2026-11-07T23:08:27.534829+00:00"
+    }
+  ],
+  "coverage": {
+    "journeysExercised": [
+      "Judas evaluation page opens",
+      "Both vendor agents are discovered",
+      "Buyer sees the vendor comparison",
+      "Ramp agent answers with cited documentation",
+      "Brex agent answers with cited documentation",
+      "Interaction history records the exchanges",
+      "Buyer loads the Ramp vs Brex scenario"
+    ],
+    "unreachable": [],
+    "confidenceNote": "7/7 cases passed.",
+    "flakyCaseIds": []
+  },
+  "narrative": "All 7 of 7 tests passed for the Project Judas evaluation flow. Every stage of the buyer journey works end-to-end: the page loads correctly with its Buyer request panel and Vendor comparison section, loading the Ramp vs Brex scenario populates the request box with all seven requirements, both vendor agents are discovered and their cards update as expected, each vendor's answers appear with properly cited documentation sources (Ramp citing docs.ramp.com, Brex citing developer.brex.com), the comparison verdict and requirements table render in full, and the interaction history accurately records all nine timestamped events across the session. No failures or blocked cases were observed; the feature is in a healthy, shippable state.",
+  "openQuestions": []
+}

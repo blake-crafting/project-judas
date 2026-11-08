@@ -1,0 +1,75 @@
+Exposing http://127.0.0.1:8700 via a temporary Cloudflare tunnel ...
+2026-11-07T23:06:32Z INF Starting tunnel tunnelID=fe8c859f-3309-4022-b37f-62a944e0eca3
+2026-11-07T23:06:32Z INF Version 2026.10.7 (Checksum 2136431d5eb467bf447d2ee514b713e192719b143aec1d9e09bf7dc290d5bb12)
+2026-11-07T23:06:32Z INF GOOS: darwin, GOVersion: go1.27.3, GoArch: arm64
+2026-11-07T23:06:32Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-11-07T23:06:32Z INF Generated Connector ID: f118e76d-ba71-4455-b77e-ecafb69478bc
+2026-11-07T23:06:32Z INF Initial protocol quic
+2026-11-07T23:06:32Z INF ICMP proxy will use 192.168.0.178 as source for IPv4
+2026-11-07T23:06:32Z INF ICMP proxy will use fe80::143f:31be:68a6:4007 in zone en0 as source for IPv6
+2026-11-07T23:06:32Z INF Created ICMP proxy listening on 192.168.0.178:0
+2026-11-07T23:06:32Z INF ICMP proxy will use 192.168.0.178 as source for IPv4
+2026-11-07T23:06:32Z INF ICMP proxy will use fe80::143f:31be:68a6:4007 in zone en0 as source for IPv6
+2026-11-07T23:06:32Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2026-11-07T23:06:32Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-11-07T23:06:32Z INF Registered tunnel connection connIndex=0 connection=1cca351c-f60f-401c-9d87-ec87eeb9b16c event=0 ip=198.41.192.107 location=sjc01 protocol=quic
+Tunnel ready — routing this run to https://tnl-6f64cbb94cdf.joinblok.co (active for up to 30 min; the run must finish within that window).
+Running seldon.yml (7 case(s)) for project-judas against https://tnl-6f64cbb94cdf.joinblok.co [hackathon, judas, full, build-9018fcd] ...
+2026-11-07T23:06:32Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=1 event=0 ip=198.41.200.53
+2026-11-07T23:06:32Z INF Updated to new configuration config="{\"ingress\":[{\"hostname\":\"tnl-6f64cbb94cdf.joinblok.co\", \"originRequest\":{\"httpHostHeader\":\"127.0.0.1:8700\"}, \"service\":\"http://127.0.0.1:8700\"}, {\"service\":\"http_status:404\"}], \"warp-routing\":{\"enabled\":false}}" version=1
+2026-11-07T23:06:32Z INF Registered tunnel connection connIndex=1 connection=cf7de990-172d-49ef-bf91-9c327f77d1e1 event=0 ip=198.41.200.53 location=sjc05 protocol=quic
+2026-11-07T23:06:33Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=2 event=0 ip=198.41.200.43
+2026-11-07T23:06:33Z INF Registered tunnel connection connIndex=2 connection=47263bc6-24e5-46c8-926d-d03a89d69b20 event=0 ip=198.41.200.43 location=sjc07 protocol=quic
+2026-11-07T23:06:34Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=3 event=0 ip=198.41.192.47
+2026-11-07T23:06:34Z INF Registered tunnel connection connIndex=3 connection=7e931e7e-5d1a-4446-a36d-1f570e60967f event=0 ip=198.41.192.47 location=sjc06 protocol=quic
+Run started — 7b31724c-fa9a-4b5a-af37-92a73b517901
+  app      https://app.seldon.com/experiments/7b31724c-fa9a-4b5a-af37-92a73b517901
+  progress seldon report --id 7b31724c-fa9a-4b5a-af37-92a73b517901
+  live     seldon logs -f --id 7b31724c-fa9a-4b5a-af37-92a73b517901
+  stop     seldon cancel --id 7b31724c-fa9a-4b5a-af37-92a73b517901
+waiting because the target is local — its tunnel is only open while this command runs
+2026-11-07T23:06:38Z INF +-------------------------------------------------------------------------------------+
+2026-11-07T23:06:38Z INF |                               CONNECTIVITY PRE-CHECKS                               |
+2026-11-07T23:06:38Z INF +-------------------------------------------------------------------------------------+
+2026-11-07T23:06:38Z INF |  COMPONENT         TARGET                     STATUS  DETAILS                       |
+2026-11-07T23:06:38Z INF |  DNS Resolution    region1.v2.argotunnel.com  PASS    DNS Resolved successfully     |
+2026-11-07T23:06:38Z INF |  DNS Resolution    region2.v2.argotunnel.com  PASS    DNS Resolved successfully     |
+2026-11-07T23:06:38Z INF |  UDP Connectivity  region1.v2.argotunnel.com  PASS    QUIC connection successful    |
+2026-11-07T23:06:38Z INF |  UDP Connectivity  region2.v2.argotunnel.com  PASS    QUIC connection successful    |
+2026-11-07T23:06:38Z INF |  TCP Connectivity  region1.v2.argotunnel.com  PASS    HTTP/2 connection successful  |
+2026-11-07T23:06:38Z INF |  TCP Connectivity  region2.v2.argotunnel.com  PASS    HTTP/2 connection successful  |
+2026-11-07T23:06:38Z INF |  Cloudflare API    api.cloudflare.com:443     PASS    API is reachable              |
+2026-11-07T23:06:38Z INF |                                                                                     |
+2026-11-07T23:06:38Z INF |  SUMMARY: Environment is healthy. cloudflared will use 'quic' as primary protocol.  |
+2026-11-07T23:06:38Z INF +-------------------------------------------------------------------------------------+
+2026-11-07T23:06:38Z INF precheck component="DNS Resolution" details="DNS Resolved successfully" run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 status=pass target=region1.v2.argotunnel.com
+2026-11-07T23:06:38Z INF precheck component="DNS Resolution" details="DNS Resolved successfully" run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 status=pass target=region2.v2.argotunnel.com
+2026-11-07T23:06:38Z INF precheck component="UDP Connectivity" details="QUIC connection successful" run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 status=pass target=region1.v2.argotunnel.com
+2026-11-07T23:06:38Z INF precheck component="UDP Connectivity" details="QUIC connection successful" run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 status=pass target=region2.v2.argotunnel.com
+2026-11-07T23:06:38Z INF precheck component="TCP Connectivity" details="HTTP/2 connection successful" run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 status=pass target=region1.v2.argotunnel.com
+2026-11-07T23:06:38Z INF precheck component="TCP Connectivity" details="HTTP/2 connection successful" run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 status=pass target=region2.v2.argotunnel.com
+2026-11-07T23:06:38Z INF precheck component="Cloudflare API" details="API is reachable" run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 status=pass target=api.cloudflare.com:443
+2026-11-07T23:06:38Z INF precheck complete hard_fail=false run_id=70183b02-11df-4ca0-b7fc-87ea5a944fb4 suggested_protocol=quic
+
+Seldon QA — Seldon QA: project-judas · 7/7 passed (100%)
+
+PASS               open-judas  Judas evaluation page opens
+PASS               discover-vendors  Both vendor agents are discovered
+PASS               view-comparison  Buyer sees the vendor comparison
+PASS               contact-ramp  Ramp agent answers with cited documentation
+PASS               contact-brex  Brex agent answers with cited documentation
+PASS               interaction-history  Interaction history records the exchanges
+PASS               load-scenario  Buyer loads the Ramp vs Brex scenario
+2026-11-07T23:10:18Z INF Initiating graceful shutdown due to signal terminated ...
+2026-11-07T23:10:18Z INF Retrying connection in up to 2s connIndex=3 event=0 ip=198.41.192.47
+2026-11-07T23:10:18Z INF Retrying connection in up to 2s connIndex=1 event=0 ip=198.41.200.53
+2026-11-07T23:10:18Z ERR Connection terminated connIndex=3
+2026-11-07T23:10:18Z INF Retrying connection in up to 2s connIndex=2 event=0 ip=198.41.200.43
+2026-11-07T23:10:18Z INF Retrying connection in up to 2s connIndex=0 event=0 ip=198.41.192.107
+2026-11-07T23:10:18Z ERR Connection terminated connIndex=1
+2026-11-07T23:10:18Z ERR Connection terminated connIndex=2
+2026-11-07T23:10:18Z ERR Connection terminated connIndex=0
+2026-11-07T23:10:18Z ERR no more connections active and exiting
+2026-11-07T23:10:18Z INF Tunnel server stopped
+2026-11-07T23:10:18Z INF Metrics server stopped
+exit:0

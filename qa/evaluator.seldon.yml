@@ -1,0 +1,69 @@
+# Seldon Wren QA for the Judas EVALUATOR build (branch feat/judas-evaluator).
+# The baseline suite for the judas-demo build stays in /seldon.yml, unchanged.
+# The localhost tunnel lands on the app root, so every case first clicks the Project Judas tab.
+# Run: seldon run --file qa/evaluator.seldon.yml --url http://127.0.0.1:8700/judas --auto-approve --wait
+version: 1
+name: project-judas-evaluator
+labels: [hackathon, judas, evaluator]
+run:
+  url: http://127.0.0.1:8700/judas
+testCases:
+  - id: load-scenario
+    name: Buyer loads the scenario and sees requirement priorities
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+    criteria: the request box is filled with the buyer scenario and seven requirements are listed, each with Must, Nice and Skip choices
+
+  - id: discover-vendors
+    name: Both vendor agents are discovered
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Discover agents and wait a few seconds
+    criteria: both the Ramp and the Brex seller agents are shown as discovered
+
+  - id: contact-ramp
+    name: Ramp agent answers with cited official documentation
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Discover agents and wait a few seconds
+      - click Contact Ramp and wait for the answers to appear
+    criteria: Ramp's answers appear with a short summary of the exchange (an A2A request, MCP lookups and an A2A reply), and at least one answer shows a documentation source from docs.ramp.com
+
+  - id: request-demo
+    name: Ramp agent runs a demonstration that is labeled synthetic
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Discover agents and wait a few seconds
+      - click the "Request demo" button on the Ramp card and wait for the result
+    criteria: a Demonstration panel appears on the Ramp card, labeled as synthetic data from a sandbox that is not Ramp's servers, and it reports how many duplicate records were removed
+
+  - id: view-comparison
+    name: Buyer sees the evidence-based comparison
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Evaluate both and wait up to 30 seconds for it to finish
+      - scroll to the Vendor comparison section
+    criteria: a verdict with documentation coverage for Ramp and Brex is shown, together with a caveat, above a comparison table that lists the requirements with a Ramp column and a Brex column
+
+  - id: buyer-priorities
+    name: Buyer priorities change the verdict
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click the "Real-time first" button
+      - click Evaluate both and wait up to 30 seconds for it to finish
+    criteria: the verdict says the reviewed docs favor Ramp, and one row of the comparison table is marked "decides the verdict"
+
+  - id: challenge-gap
+    name: Buyer challenges an unresolved requirement
+    steps:
+      - open the app and click the "Project Judas" tab at the top of the page
+      - "click the 'Expense sync: Ramp vs Brex' button"
+      - click Evaluate both and wait up to 30 seconds for it to finish
+      - in the comparison table row "Q4 · incremental sync", click the "Challenge Ramp" button and wait a few seconds
+    criteria: a Follow-up note appears in that row saying how many more places in the official docs were searched and what is still not found

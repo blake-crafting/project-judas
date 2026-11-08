@@ -1,0 +1,89 @@
+{
+  "experimentId": "112bd842-1248-4cc0-a78c-00723b934f73",
+  "planTitle": "Seldon QA: project-judas-evaluator",
+  "status": "complete",
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "blocked": 0,
+    "timedOut": 0,
+    "passRate": 1,
+    "headline": "7/7 passed (100%)."
+  },
+  "failures": [],
+  "passed": [
+    {
+      "id": "load-scenario",
+      "title": "Buyer loads the scenario and sees requirement priorities",
+      "area": "general",
+      "durationSeconds": 55.825,
+      "startedAt": "2026-11-08T00:19:45.815036+00:00",
+      "completedAt": "2026-11-08T00:20:41.639696+00:00"
+    },
+    {
+      "id": "challenge-gap",
+      "title": "Buyer challenges an unresolved requirement",
+      "area": "general",
+      "durationSeconds": 133.962,
+      "startedAt": "2026-11-08T00:19:45.624197+00:00",
+      "completedAt": "2026-11-08T00:21:59.585959+00:00"
+    },
+    {
+      "id": "contact-ramp",
+      "title": "Ramp agent answers with cited official documentation",
+      "area": "general",
+      "durationSeconds": 149.323,
+      "startedAt": "2026-11-08T00:19:49.571729+00:00",
+      "completedAt": "2026-11-08T00:22:18.894903+00:00"
+    },
+    {
+      "id": "view-comparison",
+      "title": "Buyer sees the evidence-based comparison",
+      "area": "general",
+      "durationSeconds": 108.078,
+      "startedAt": "2026-11-08T00:19:48.184708+00:00",
+      "completedAt": "2026-11-08T00:21:36.262513+00:00"
+    },
+    {
+      "id": "buyer-priorities",
+      "title": "Buyer priorities change the verdict",
+      "area": "general",
+      "durationSeconds": 113.749,
+      "startedAt": "2026-11-08T00:19:50.429319+00:00",
+      "completedAt": "2026-11-08T00:21:44.178019+00:00"
+    },
+    {
+      "id": "discover-vendors",
+      "title": "Both vendor agents are discovered",
+      "area": "general",
+      "durationSeconds": 79.927,
+      "startedAt": "2026-11-08T00:19:45.088976+00:00",
+      "completedAt": "2026-11-08T00:21:05.016418+00:00"
+    },
+    {
+      "id": "request-demo",
+      "title": "Ramp agent runs a demonstration that is labeled synthetic",
+      "area": "general",
+      "durationSeconds": 106.125,
+      "startedAt": "2026-11-08T00:19:44.735949+00:00",
+      "completedAt": "2026-11-08T00:21:30.8606+00:00"
+    }
+  ],
+  "coverage": {
+    "journeysExercised": [
+      "Buyer loads the scenario and sees requirement priorities",
+      "Buyer challenges an unresolved requirement",
+      "Ramp agent answers with cited official documentation",
+      "Buyer sees the evidence-based comparison",
+      "Buyer priorities change the verdict",
+      "Both vendor agents are discovered",
+      "Ramp agent runs a demonstration that is labeled synthetic"
+    ],
+    "unreachable": [],
+    "confidenceNote": "7/7 cases passed.",
+    "flakyCaseIds": []
+  },
+  "narrative": "All 7 of 7 test cases passed across the full buyer evaluation journey. Every major area is solid: loading a scenario and setting requirement priorities works correctly, vendor agents are discovered and contacted as expected, Ramp and Brex both return evidence-backed answers with cited documentation, the comparison table renders with accurate coverage scores and a clear verdict, priority changes correctly shift the verdict and highlight the deciding requirement, challenging an unresolved requirement produces a meaningful follow-up note, and the sandbox demonstration is correctly labeled as synthetic data with duplicate-removal counts reported. There are no failures or blocked scenarios to report.",
+  "openQuestions": []
+}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Judas · Real vendors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/command.css">
+</head>
+<body class="judas live cc" data-theme="judas" data-stage="idle">
+  <header class="masthead">
+    <div class="brand">
+      <span class="kicker">Seldon · Ship Happens · Nov 7 2026 · buyer agent</span>
+      <h1>Project Judas</h1>
+      <p class="cc-sub">AI buyers. Real software. Verified evidence.</p>
+      <p class="tagline">Buyer agents interrogate vendors, execute real product operations, and test integrations inside
+        isolated application environments. Then Judas <em>checks every result itself</em>.</p>
+    </div>
+    <ol class="chain" id="chain" aria-label="Signal chain">
+      <li data-node="buyer"><b>Judas</b><small>buyer agent</small></li>
+      <li class="wire" data-wire="a2a"><span>A2A</span></li>
+      <li data-node="seller"><b>Adapters</b><small>ours, labeled</small></li>
+      <li class="wire" data-wire="mcp"><span>MCP</span></li>
+      <li data-node="docs"><b>Airtable · monday</b><small>official servers</small></li>
+    </ol>
+  </header>
+
+  <nav class="tabs">
+    <a class="tablink" href="/judas">Project Judas</a>
+    <a class="tablink active" href="/judas/live">Real vendors (live)</a>
+    <a class="tablink" href="/">Discovery Lab</a>
+    <span class="honesty">Real: Airtable and monday.com products, their official MCP servers, A2A messages, Crafting sandboxes,
+      independent readback. Ours: the buyer, the two A2A adapters, the test app. Fictional: the data.</span>
+  </nav>
+
+  <section class="cc-bar" id="cc-bar" aria-label="Evaluation status">
+    <div class="cc-stage">
+      <span class="cc-system" id="cc-system">JUDAS</span>
+      <div class="cc-copy">
+        <b class="cc-title" id="cc-title">Ready</b>
+        <span class="cc-desc" id="cc-desc">One click runs both vendors live.</span>
+      </div>
+    </div>
+    <ol class="cc-timeline" id="cc-timeline" aria-label="Execution stages">
+      <li data-step="buyer"><span class="cc-dot" aria-hidden="true"></span><b>Buyer</b><small>request + registry</small></li>
+      <li data-step="a2a"><span class="cc-dot" aria-hidden="true"></span><b>A2A</b><small>our seller adapters</small></li>
+      <li data-step="mcp"><span class="cc-dot" aria-hidden="true"></span><b>MCP</b><small>vendors' official servers</small></li>
+      <li data-step="verify"><span class="cc-dot" aria-hidden="true"></span><b>Verify</b><small>Judas re-reads</small></li>
+      <li data-step="crafting"><span class="cc-dot" aria-hidden="true"></span><b>Crafting</b><small>2 sandboxes + re-check</small></li>
+      <li data-step="verdict"><span class="cc-dot" aria-hidden="true"></span><b>Verdict</b><small>evidence-backed</small></li>
+    </ol>
+    <p class="cc-prov" id="cc-prov" aria-live="polite">No run loaded yet.</p>
+  </section>
+
+  <main class="jgrid">
+    <section class="panel" aria-labelledby="h-req">
+      <h2 id="h-req"><span class="step">01</span> Buyer request</h2>
+      <p class="cc-buyer">Northstar Commerce · fictional 100-person e-commerce company · multi-service app</p>
+      <p class="live-request" id="request">Loading…</p>
+      <label>What Judas will make each vendor prove</label>
+      <ol class="tests" id="tests"></ol>
+      <label>Not tested in this run</label>
+      <ul class="untested" id="untested"></ul>
+      <button class="primary alt" id="btn-run">Run live evaluation</button>
+      <p class="muted run-note" id="run-note">Creates fictional incidents in our free test workspaces, then runs our app in a Crafting sandbox. Takes up to about 2 minutes.</p>
+      <p class="error" id="err" role="alert" hidden></p>
+    </section>
+
+    <section class="panel" aria-labelledby="h-vendors">
+      <h2 id="h-vendors"><span class="step">02</span> Vendors and what actually happened</h2>
+      <div class="vendors" id="vendors"></div>
+    </section>
+
+    <section class="panel wide cc-crafting" id="crafting-panel" aria-labelledby="h-crafting">
+      <h2 id="h-crafting"><span class="step">03</span> Crafting · testing in the buyer's environment</h2>
+      <p class="cc-lede">An API that answers is not the same as an integration that works. Two isolated Crafting sandboxes run
+        the <b>same</b> test app with the <b>same</b> inputs and pass rules. The only difference is the vendor.</p>
+      <div class="cc-paths" aria-label="Two evidence paths">
+        <div class="cc-path"><b>Vendor-capability path</b>
+          <span>Judas</span><i>→</i><span>our A2A adapter</span><i>→</i><span>vendor's official MCP</span><i>→</i><span>real product</span></div>
+        <div class="cc-path crafting"><b>Buyer-environment path</b>
+          <span>Judas</span><i>→</i><span>Crafting sandbox</span><i>→</i><span>checkout · incident · Postgres</span><i>→</i><span>vendor public API</span></div>
+      </div>
+      <div class="cc-sandboxes" id="sandboxes"></div>
+      <h3 class="cc-h3">The three tests that matter most</h3>
+      <div class="cc-highlights" id="highlights"></div>
+    </section>
+
+    <section class="panel wide" id="verdict-panel" aria-labelledby="h-verdict">
+      <h2 id="h-verdict"><span class="step">04</span> Live verdict</h2>
+      <div id="verdict"><p class="empty">Click <b>Run live evaluation</b> to make both vendors prove it.</p></div>
+    </section>
+  </main>
+
+  <section class="historywrap">
+    <details class="trace" id="history">
+      <summary>Interaction history <span id="history-count" class="count">0</span></summary>
+      <ol class="timeline" id="timeline"></ol>
+    </details>
+  </section>
+
+  <footer>The A2A adapters are ours (hackathon team), not operated by Airtable or monday.com. Every operation runs through the vendor's
+    official hosted MCP server in our own free test workspaces, with fictional data, and is then re-read through the vendor's
+    separate public API. The Crafting sandboxes run our fictional company's app, not anyone's production system, and the
+    connection failures in the recovery tests are injected by our own test harness, not vendor outages. One run proves what was
+    tested, not production reliability.</footer>
+  <script src="/static/judas_live.js"></script>
+</body>
+</html>

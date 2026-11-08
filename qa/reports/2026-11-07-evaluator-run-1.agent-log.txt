@@ -1,0 +1,65 @@
+🤖  Seldon — agent thinking  112bd842-1248-4cc0-a78c-00723b934f73
+   Seldon QA: project-judas-evaluator · 7 cases
+
+── QA Agent · case 0
+   ↳ https://tnl-61f0978df5bd.joinblok.co/
+🤖  step 2  I'm on the Agent Discovery Lab page, currently on the BUYER tab. Step 1: click the "Project Judas" tab at top. Then step 2: click 'Expense sync: Ramp vs Brex' button. I see PROJECT JUDAS tab at top-left of the tab bar.
+   ↳ https://tnl-61f0978df5bd.joinblok.co/judas
+🤖  step 3  **Expectation:** Clicking the 'Expense sync: Ramp vs Brex' button fills the request box with the buyer scenario and lists 7 requirements with Must/Nice/Skip choices. **Observation:** On the Project Judas tab, the request box shows only grey placeholder 'Describe what the buyer needs...' and 'WHAT MATTERS TO THIS BUYER' says '1. Load the scenario to see the 7 requirements.' — the scenario is not loaded yet. **Sentiment:** neutral **Why:** The page is telling me exactly what to do next — 'Load the scenario to see the 7 requirements' — which is honest empty-state copy, not a dead end. **Hypothesis signal:** not_applicable **Metric impact:** none — pre-action state, nothing to judge yet. **Confidence:** high
+🤖  step 4  The click landed and the panel now shows exactly what the test case asks for: the REQUEST box is filled with the buyer scenario text, and below 'WHAT MATTERS TO THIS BUYER' there are seven requirement rows — transaction source, identifiers, amounts & currency, incremental sync, no duplicates, change notifications, read-only access — each with Must/Nice/Skip buttons. Acceptance criterion verified. Done.
+
+── QA Agent · case 1
+   ↳ https://tnl-61f0978df5bd.joinblok.co/
+🤖  step 2  App loaded, no login. I see tabs: PROJECT JUDAS, BUYER, EVENT LOG. Step 1: click PROJECT JUDAS.
+   ↳ https://tnl-61f0978df5bd.joinblok.co/judas
+🤖  step 3  On Project Judas tab now. Step 2: click 'Expense sync: Ramp vs Brex' button at (118,266). Then Discover agents.</think><tool_call>agent_output<arg_key>action</arg_key><arg_value>[{"click": {"expect": "effect", "hint_x": 118, "hint_y": 266, "modifiers": [], "target_description": "'Expense sync: Ramp vs Brex' button in Buyer request card"}}]
+🤖  step 4  Scenario loaded — Ramp and Brex both show 'not discovered'. Now click DISCOVER AGENTS and wait.
+🤖  step 5  **Expectation:** After clicking Discover agents, both vendor cards would flip from "not discovered" to "discovered". **Observation:** Seller agents panel header reads "2 vendor agents found in the curated registry · evaluation eval-20261108-59a4ba"; both the Ramp and Brex cards show "discovered · A2A · MCP-backed · documentation-only" with Contact/Request demo buttons. **Sentiment:** delight **Why:** Both cards flipped to "discovered" right after the click with a registry count and evaluation ID shown — no spinner limbo, no guessing whether it worked. **Hypothesis signal:** supports **Metric impact:** task_completion — the discovery step completed visibly on first try, so the flow continues without abandonment. **Confidence:** high
+
+── QA Agent · case 2
+   ↳ https://tnl-61f0978df5bd.joinblok.co/
+🤖  step 2  App loaded — Agent Discovery Lab with tabs PROJECT JUDAS / BUYER / EVENT LOG. Step 1: click the Project Judas tab.
+   ↳ https://tnl-61f0978df5bd.joinblok.co/judas
+🤖  step 3  On Project Judas tab now. Next: click 'Expense sync: Ramp vs Brex' button in Buyer request panel.</think><tool_call>agent_output<arg_key>action</arg_key><arg_value>[{"click": {"expect": "effect", "hint_x": 118, "hint_y": 266, "modifiers": [], "target_description": "'Expense sync: Ramp vs Brex' button in Buyer request panel"}}]
+🤖  step 4  Scenario loaded — buyer request panel shows the Ramp vs Brex prompt, seller agents Ramp/Brex with Contact buttons. Next per plan: click DISCOVER AGENTS and wait.
+🤖  step 5  **Expectation:** Clicking CONTACT RAMP sends an A2A request to the Ramp agent and eventually shows answers with a summary and docs.ramp.com citations. **Observation:** The Ramp seller card shows "discovered · A2A · MCP-backed · documentation-only" with a dark CONTACT RAMP button and a Request demo button, next to the Brex card. **Sentiment:** neutral **Why:** The discovery step actually returned two labeled agents with protocol badges, which is more concrete than I expected from a demo page. **Hypothesis signal:** not_applicable **Metric impact:** none **Confidence:** high
+🤖  step 6  Agent is Thinking...
+🤖  step 7  Contact Ramp worked — the Ramp card now shows the full exchange: "A2A request: 7 questions", "19 MCP lookups", "A2A reply: 4 documented, 3 partial", and answers Q1–Q4 with docs.ramp.com citations (docs.ramp.com/films-api.txt, /developer/v1/transactions, /llms-guides/monetary-values.txt). Acceptance criterion met. Let me scroll down to see the rest of the answers and any summary before calling done.
+🤖  step 8  **Expectation:** Ramp's answers would appear with an exchange summary (A2A request, MCP lookups, A2A reply) and docs.ramp.com citations. **Observation:** Ramp panel shows "A2A request/opened/agent/op-a.json", "19 MCP lookups", "A2A reply/opened/agent/op-a.json", Q1–Q7 badges (DOCUMENTED/PARTIALLY DOCUMENTED) each citing docs.ramp.com/llms-guides/*.txt and /developer/api_v3.json, plus disclaimer "Every lookup went through hackathon-docs MCP". **Sentiment:** delight **Why:** Every answer actually shows its docs.ramp.com source link right under it — I didn't have to dig for citations, they're just there. **Hypothesis signal:** supports **Metric impact:** trust — cited sources make me believe the answers instead of guessing. **Confidence:** high
+
+── QA Agent · case 3
+   ↳ https://tnl-61f0978df5bd.joinblok.co/
+🤖  step 2  Landed on "Agent Discovery Lab" — tabs at top: PROJECT JUDAS, BUYER, EVENT LOG. Step 1 is clicking PROJECT JUDAS. I can see it at top-left of the tab bar. Clicking it now.
+   ↳ https://tnl-61f0978df5bd.joinblok.co/judas
+🤖  step 3  On Project Judas page. Step 2: click 'Expense sync: Ramp vs Brex' button at (120,266). Then next steps later.
+🤖  step 4  On /judas, Expense sync selected. Next: click DISCOVER AGENTS button bottom-left, then wait.</think><tool_call>agent_output<arg_key>action</arg_key><arg_value>[{"click": {"expect": "effect", "hint_x": 160, "hint_y": 736, "modifiers": [], "target_description": "DISCOVER AGENTS button at bottom of Buyer request panel"}}]
+🤖  step 5  Seller agents panel shows Ramp/Brex cards "not discovered". Step 3: click DISCOVER AGENTS button (bottom-left, dark) and wait. Then step 4: Request demo on Ramp card.
+🤖  step 6  Discovery worked — Ramp card now reads "discovered · A2A · MCP-backed · documentation-only" with a Request demo button. Step 4: click Request demo on the Ramp card and wait for the Demonstration panel.
+🤖  step 7  **Expectation:** Clicking Request demo on the Ramp card would produce a Demonstration panel labeled synthetic, from a sandbox not Ramp's servers, reporting duplicate records removed. **Observation:** The Ramp card now shows a "Demonstration" panel with a "synthetic data" badge and the text "our sandbox MCP, not Ramp's servers", plus a row "Ramp agent → Judas: 6 unique records, 2 duplicates removed" and Q4/Q1/Q2 notes about de-duplication. **Sentiment:** delight **Why:** The panel says exactly what it is — "synthetic data", "our sandbox MCP, not Ramp's servers" — and gives me the number I was checking for, "2 duplicates removed", right on the card. **Hypothesis signal:** supports **Metric impact:** trust — the explicit synthetic/sandbox labeling makes the demo feel honest rather than faked. **Confidence:** high
+
+── QA Agent · case 4
+   ↳ https://tnl-61f0978df5bd.joinblok.co/
+🤖  step 2  App loaded — "Agent Discovery Lab" with tabs PROJECT JUDAS / BUYER / EVENT LOG. Step 1: click the "Project Judas" tab. It's visible at top-left of the tab bar.
+   ↳ https://tnl-61f0978df5bd.joinblok.co/judas
+🤖  step 3  Project Judas tab is active — I can see the Buyer request panel with the 'Expense sync: Ramp vs Brex' button right there. Clicking it should load the scenario with the 7 requirements.
+🤖  step 4  On Project Judas tab, request loaded. Next: click EVALUATE BOTH (orange button bottom right of left panel), then wait.</think><tool_call>agent_output<arg_key>action</arg_key><arg_value>[{"click": {"expect": "effect", "hint_x": 404, "hint_y": 736, "modifiers": [], "target_description": "orange 'EVALUATE BOTH' button at bottom-right of the Buyer request panel"}}]
+🤖  step 5  The Vendor comparison section is fully rendered: verdict "Additional testing required" with documentation coverage (Ramp 4 documented · 3 partial; Brex 3 documented · 4 partial), a caveat paragraph, and a table with REQUIREMENT / RAMP 4/7 / BREX 3/7 / BUYER NOTE columns. All four steps done and acceptance criterion verified. Done.
+
+── QA Agent · case 5
+   ↳ https://tnl-61f0978df5bd.joinblok.co/
+🤖  step 2  Landed on Agent Discovery Lab, Buyer tab active. Step 1: click PROJECT JUDAS tab at top.
+   ↳ https://tnl-61f0978df5bd.joinblok.co/judas
+🤖  step 3  Project Judas tab loaded. Next: click 'Expense sync: Ramp vs Brex' button in Buyer request panel.</think><tool_call>agent_output<arg_key>action</arg_key><arg_value>[{"click": {"expect": "effect", "hint_x": 118, "hint_y": 266, "modifiers": [], "target_description": "'Expense sync: Ramp vs Brex' pill button under '01 Buyer request' heading"}}]
+🤖  step 4  Step 2 done: the 'Expense sync: Ramp vs Brex' pill is selected (dark) and the request text loaded. Now click the 'Real-time first' pill under WHAT MATTERS TO THIS BUYER.
+🤖  step 5  Real-time first is selected (dark pill). Now click EVALUATE BOTH and wait for results.
+🤖  step 6  Verdict panel reads "Reviewed docs favor Ramp" — first acceptance criterion met. Now need to find a comparison-table row marked "decides the verdict". Q1 is a must-have documented only by Ramp, so likely that row. Scroll down to check.
+🤖  step 7  Q6 · change notifications row is highlighted with a red left bar and carries the "decides the verdict" badge — Ramp DOCUMENTED vs Brex PARTIALLY DOCUMENTED. Verdict said "Reviewed docs favor Ramp". Acceptance criterion met. Done.
+
+── QA Agent · case 6
+   ↳ https://tnl-61f0978df5bd.joinblok.co/
+🤖  step 2  App loaded — "Agent Discovery Lab" with tabs PROJECT JUDAS / BUYER / EVENT LOG. Step 1: click the PROJECT JUDAS tab. No login wall, good.
+   ↳ https://tnl-61f0978df5bd.joinblok.co/judas
+🤖  step 3  On Project Judas tab now. Next: click 'Expense sync: Ramp vs Brex' button, then Evaluate both.
+🤖  step 4  Chip click landed (effect=changed). Now click EVALUATE BOTH and wait for the comparison table to fill.
+🤖  step 5  Evaluation finished — verdict 'Additional testing required', and the comparison table is rendered. I can see the 'Q4 · incremental sync' row with its own 'Challenge Ramp' button (orange, under the Ramp column). Next: click it, then wait a few seconds for the Follow-up note.
+🤖  step 6  **Expectation:** A Follow-up note would appear in the Q4 row after clicking Challenge Ramp **Observation:** The Q4 · incremental sync Ramp cell shows a pink Follow-up box reading "searched 4 more places in the official docs. Still not found: filter for records changed since the last sync (updated_after)." plus a "2 possible leads (not counted)" expander and a "Challenge Ramp again" button **Sentiment:** delight **Why:** The Follow-up note actually tells me how many more doc pages were searched and exactly what's still missing — no vague "we looked into it" hand-waving. **Hypothesis signal:** supports **Metric impact:** none **Confidence:** high

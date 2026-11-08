@@ -1,0 +1,36 @@
+{
+ "vendor": "monday.com",
+ "interface": "native vendor-operated A2A Platform Agent",
+ "agent_card": "https://api.monday.com/platform-ai-gateway/a2a/platform-agent/.well-known/agent-card.json",
+ "card_observed": {
+  "http": 200,
+  "name": "monday_platform_agent",
+  "protocolVersion": "0.3 (card also lists a 1.0 JSONRPC interface)",
+  "streaming": false,
+  "securitySchemes": [
+   "mondayOAuth2"
+  ],
+  "skills": [
+   "board_and_item_management",
+   "workspace_and_docs",
+   "updates_and_collaboration",
+   "insights_and_analytics"
+  ]
+ },
+ "request": {
+  "method": "SendMessage",
+  "A2A-Version": "1.0",
+  "text": "What is my user name? Read-only; do not change anything.",
+  "auth": "personal API token as Bearer (docs say OAuth app; the endpoint accepted the token)"
+ },
+ "observed": {
+  "http": 200,
+  "role": "ROLE_AGENT",
+  "contextId_returned": true,
+  "reply_text": "AI credits limit reached",
+  "credits_used_header": null
+ },
+ "classification": "blocked",
+ "blocker": "Account has no monday AI credits (free plan; AI starts at Basic per monday pricing). Authentication and A2A transport worked.",
+ "spent": "nothing"
+}
